@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="raw painted red oval">
+  <title>Raw painted red oval</title>
+  <path
+    d="M60 25
+       C88 20, 110 50, 108 60
+       C106 90, 78 100, 48 95
+       C20 90, 15 70, 18 50
+       C22 28, 42 25, 60 25Z"
+    fill="none"
+    stroke="#e53935"
+    stroke-width="5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-dasharray="4 2"
+    stroke-dashoffset="1"
+    stroke-opacity="0.96"
+  />
+</svg>
