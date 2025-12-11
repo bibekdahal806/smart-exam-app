@@ -16,4 +16,6 @@ class HiveTableKeys {
 
   //logged user data keys
   static const String userDetailKey = "user_details";
+  static const String accessTokenKey = "access_token";
+  static const String refreshTokenKey = "refresh_token";
 }

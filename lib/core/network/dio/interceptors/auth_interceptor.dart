@@ -17,8 +17,7 @@ class AuthInterceptor extends Interceptor {
         ? accessToken != null
               ? await accessToken!() ?? ''
               : await SecureStorageHelper.instance.getData(
-                      key: "accessToken",
-                      // key: HiveTableKeys.accessTokenKey,
+                      key: HiveTableKeys.accessTokenKey,
                     ) ??
                     ''
         : '';

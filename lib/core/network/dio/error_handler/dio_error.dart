@@ -31,7 +31,7 @@ class DioExceptionUtil {
 
     switch (statusCode) {
       case 400:
-        return 'Invalid request: ${parseErrorMapToString(data)}';
+        return parseErrorMapToString(data);
       case 401:
         return 'Authentication failed';
       case 403:

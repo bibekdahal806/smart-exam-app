@@ -227,7 +227,7 @@ class RemoteServiceImpl extends RemoteService {
   Future<String?> _refreshAccessToken() async {
     final refreshToken =
         await SecureStorageHelper.instance.getData(
-          key: "HiveTableKeys.refreshTokenKey",
+          key: HiveTableKeys.refreshTokenKey,
         ) ??
         '';
 
@@ -251,11 +251,11 @@ class RemoteServiceImpl extends RemoteService {
       final newAccessToken = response.data['data']['access'];
       final newRefreshToken = response.data['data']['refresh'];
       await SecureStorageHelper.instance.setData(
-        key: "HiveTableKeys.accessTokenKey",
+        key: HiveTableKeys.accessTokenKey,
         value: newAccessToken,
       );
       await SecureStorageHelper.instance.setData(
-        key: "HiveTableKeys.refreshTokenKey",
+        key: HiveTableKeys.refreshTokenKey,
         value: newRefreshToken,
       );
       return newAccessToken;

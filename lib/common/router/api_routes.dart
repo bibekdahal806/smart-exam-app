@@ -1,4 +1,6 @@
 class ApiRoutes {
+  //baseUrl
+  static const String baseUrl = 'api';
   //api
   static const String apiEndPoint = 'api';
 

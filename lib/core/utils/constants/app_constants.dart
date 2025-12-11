@@ -1,5 +1,3 @@
-import 'package:q_bank/core/utils/helpers/env_helper.dart';
-
 class AppConstants {
   static const String appName = "QBank";
   static Duration splashDuration = Duration(seconds: 3);
@@ -10,7 +8,6 @@ class AppConstants {
   static String defaultNullValue = "--:--";
   static String devnagariFont = "Poppins";
   static String englishFont = "Poppins";
-  static String envBaseUrl = EnvHelper.get('API_BASE_URL');
 
   // If an app only needs an idToken, or only requests permissions to any/all of the three scopes mentioned above (Op/enID Connect scopes), it won't need to implement any additional scope handling.
   static const List<String> googleScopes = <String>[
