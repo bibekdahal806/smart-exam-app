@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:q_bank/common/common.dart';
 import 'package:q_bank/core/core.dart';
 import 'package:q_bank/modules/theme/theme.dart';
 
@@ -8,7 +9,7 @@ class QBankApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GlobalBlocConfig(child: QBankAppView());
+    return LoadingOverlayWidget(child: GlobalBlocConfig(child: QBankAppView()));
   }
 }
 
@@ -29,8 +30,10 @@ class QBankAppView extends StatelessWidget {
               debugShowCheckedModeBanner: false,
 
               /// theme config
-              theme: ThemeConfigs.lightTheme(),
-              darkTheme: ThemeConfigs.lightTheme(),
+              // theme: ThemeConfigs.lightTheme(),
+              // darkTheme: ThemeConfigs.lightTheme(),
+              theme: AppTheme.light,
+              darkTheme: AppTheme.dark,
               themeMode: themeModeState.themeMode,
 
               /// routing config

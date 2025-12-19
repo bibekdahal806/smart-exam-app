@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:q_bank/common/common.dart';
 import 'package:q_bank/core/core.dart';
 import 'package:q_bank/modules/app_setting/app_setting.dart';
+import 'package:q_bank/modules/auth/auth.dart';
 import 'package:q_bank/modules/onboarding/features/splash/presentation/bloc/splash/splash_cubit.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -29,10 +30,15 @@ class SplashScreenView extends StatelessWidget {
         if (state.splashStatus.isSuccess) {
           if (context.mounted) {
             var appSettingCubitState = context.read<AppSettingCubit>().state;
+            var authState = context.read<AuthBloc>().state;
             if (appSettingCubitState.showOnboarding) {
               context.goNamed(Routes.onboarding.name);
             } else {
-              context.goNamed(Routes.dashboard.name);
+              if (authState is AuthUserUnauthenticated) {
+                context.goNamed(Routes.login.name);
+              } else {
+                context.goNamed(Routes.dashboard.name);
+              }
             }
           }
         }

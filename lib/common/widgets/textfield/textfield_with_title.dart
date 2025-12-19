@@ -23,8 +23,8 @@ class TextfieldWithTitle extends StatelessWidget {
           title,
           style:
               titleStyle ??
-              context.textTheme.bodySmall?.copyWith(
-                fontWeight: AppFontWeight.medium,
+              context.textTheme.bodyMedium?.copyWith(
+                fontWeight: AppFontWeight.semiBold,
                 color: context.customTheme.textPrimary,
               ),
           maxLines: 1,

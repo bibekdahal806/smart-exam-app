@@ -26,6 +26,21 @@ import 'package:q_bank/core/network/service/remote_service_impl.dart' as _i203;
 import 'package:q_bank/core/utils/helpers/connectivity_helper.dart' as _i93;
 import 'package:q_bank/core/utils/helpers/image_picker/image_picker_helper.dart'
     as _i561;
+import 'package:q_bank/modules/auth/auth.dart' as _i192;
+import 'package:q_bank/modules/auth/data/repository/auth_repository_impl.dart'
+    as _i157;
+import 'package:q_bank/modules/auth/data/repository/logout_handler_impl.dart'
+    as _i935;
+import 'package:q_bank/modules/auth/domain/use_case/get_current_auth_state_use_case.dart'
+    as _i999;
+import 'package:q_bank/modules/auth/domain/use_case/get_logged_in_user_use_case.dart'
+    as _i481;
+import 'package:q_bank/modules/auth/domain/use_case/login_with_email_password_use_case.dart'
+    as _i174;
+import 'package:q_bank/modules/auth/domain/use_case/logout_use_case.dart'
+    as _i311;
+import 'package:q_bank/modules/auth/domain/use_case/register_user_use_case.dart'
+    as _i396;
 import 'package:q_bank/modules/onboarding/data/repository/onboarding_repository_impl.dart'
     as _i37;
 import 'package:q_bank/modules/onboarding/domain/use_case/get_or_set_initial_show_onboarding_value_use_case.dart'
@@ -46,14 +61,34 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i1017.LogoutInterceptor>(() => _i1017.LogoutInterceptor());
     gh.factory<_i561.ImagePickerHelper>(() => _i561.ImagePickerHelper());
     gh.singleton<_i558.FlutterSecureStorage>(() => serviceModule.secureStorage);
+    gh.singleton<_i192.UserSessionRepository>(
+      () => serviceModule.userSessionRepository,
+    );
     gh.singleton<_i895.Connectivity>(() => serviceModule.connectivity());
     gh.lazySingleton<_i361.Dio>(() => serviceModule.dio);
+    gh.factory<_i192.LogoutHandler>(() => _i935.LogoutHandlerImpl());
     gh.factory<_i702.OnboardingRepository>(
       () => _i37.OnboardingRepositoryImpl(),
     );
+    gh.factory<_i192.AuthRepository>(() => _i157.AuthRepositoryImpl());
     gh.factory<_i588.SetShowOnboardingValueUseCase>(
       () =>
           _i588.SetShowOnboardingValueUseCase(gh<_i702.OnboardingRepository>()),
+    );
+    gh.factory<_i999.GetCurrentAuthStateUseCase>(
+      () => _i999.GetCurrentAuthStateUseCase(gh<_i192.AuthRepository>()),
+    );
+    gh.factory<_i481.GetLoggedInUserUseCase>(
+      () => _i481.GetLoggedInUserUseCase(gh<_i192.AuthRepository>()),
+    );
+    gh.factory<_i174.LoginWithEmailAndPasswordUseCase>(
+      () => _i174.LoginWithEmailAndPasswordUseCase(gh<_i192.AuthRepository>()),
+    );
+    gh.factory<_i311.LogoutUseCase>(
+      () => _i311.LogoutUseCase(gh<_i192.AuthRepository>()),
+    );
+    gh.factory<_i396.RegisterUserUseCase>(
+      () => _i396.RegisterUserUseCase(gh<_i192.AuthRepository>()),
     );
     gh.factory<_i255.RemoteService>(() => _i203.RemoteServiceImpl());
     gh.singleton<_i93.ConnectivityHelper>(

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:q_bank/common/observers/navigation_observer.dart';
 import 'package:q_bank/common/router/routes.dart';
 import 'package:q_bank/common/widgets/error/error_screen.dart';
+import 'package:q_bank/modules/auth/auth.dart';
 import 'package:q_bank/modules/dashboard/dashboard.dart';
 import 'package:q_bank/modules/onboarding/onboarding.dart';
-import 'package:go_router/go_router.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
@@ -25,6 +26,11 @@ final router = GoRouter(
       name: Routes.onboarding.name,
       path: Routes.onboarding.path,
       builder: (context, state) => const OnboardingScreen(),
+    ),
+    GoRoute(
+      name: Routes.login.name,
+      path: Routes.login.path,
+      builder: (context, state) => const LoginScreen(),
     ),
     GoRoute(
       name: Routes.dashboard.name,

@@ -3,6 +3,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
+import 'package:q_bank/modules/auth/auth.dart';
 
 @module
 abstract class ServiceModule {
@@ -17,6 +18,10 @@ abstract class ServiceModule {
 
   @singleton
   Connectivity connectivity() => Connectivity();
+
+  @singleton
+  UserSessionRepository get userSessionRepository =>
+      UserSessionRepositoryImpl();
 }
 
 AndroidOptions _getAndroidOptions() =>

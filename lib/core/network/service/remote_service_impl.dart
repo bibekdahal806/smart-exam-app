@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:q_bank/common/common.dart';
 import 'package:q_bank/core/core.dart';
 
 @Injectable(as: RemoteService)
@@ -225,42 +224,43 @@ class RemoteServiceImpl extends RemoteService {
   }
 
   Future<String?> _refreshAccessToken() async {
-    final refreshToken =
-        await SecureStorageHelper.instance.getData(
-          key: HiveTableKeys.refreshTokenKey,
-        ) ??
-        '';
+    return null;
+    // final refreshToken =
+    //     await SecureStorageHelper.instance.getData(
+    //       key: HiveTableKeys.refreshTokenKey,
+    //     ) ??
+    //     '';
 
-    if (refreshToken.isNullOrEmpty) {
-      return null;
-    }
+    // if (refreshToken.isNullOrEmpty) {
+    //   return null;
+    // }
 
-    try {
-      final newDio = Dio(
-        BaseOptions(
-          baseUrl: _config.baseUrl,
-          connectTimeout: Duration(milliseconds: _config.connectionTimeout),
-          receiveTimeout: Duration(milliseconds: _config.receiveTimeout),
-        ),
-      );
-      final response = await newDio.post(
-        '${_config.baseUrl}/${ApiRoutes.refreshTokenEndPoint}',
-        data: {'refresh': refreshToken},
-      );
+    // try {
+    //   final newDio = Dio(
+    //     BaseOptions(
+    //       baseUrl: _config.baseUrl,
+    //       connectTimeout: Duration(milliseconds: _config.connectionTimeout),
+    //       receiveTimeout: Duration(milliseconds: _config.receiveTimeout),
+    //     ),
+    //   );
+    //   final response = await newDio.post(
+    //     '${_config.baseUrl}/${ApiRoutes.refreshTokenEndPoint}',
+    //     data: {'refresh': refreshToken},
+    //   );
 
-      final newAccessToken = response.data['data']['access'];
-      final newRefreshToken = response.data['data']['refresh'];
-      await SecureStorageHelper.instance.setData(
-        key: HiveTableKeys.accessTokenKey,
-        value: newAccessToken,
-      );
-      await SecureStorageHelper.instance.setData(
-        key: HiveTableKeys.refreshTokenKey,
-        value: newRefreshToken,
-      );
-      return newAccessToken;
-    } catch (_) {
-      return null;
-    }
+    //   final newAccessToken = response.data['data']['access'];
+    //   final newRefreshToken = response.data['data']['refresh'];
+    //   await SecureStorageHelper.instance.setData(
+    //     key: HiveTableKeys.accessTokenKey,
+    //     value: newAccessToken,
+    //   );
+    //   await SecureStorageHelper.instance.setData(
+    //     key: HiveTableKeys.refreshTokenKey,
+    //     value: newRefreshToken,
+    //   );
+    //   return newAccessToken;
+    // } catch (_) {
+    //   return null;
+    // }
   }
 }

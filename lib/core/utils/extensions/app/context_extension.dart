@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:q_bank/core/utils/utils.dart';
 import 'package:q_bank/modules/app_setting/cubit/app_setting_cubit.dart';
+import 'package:q_bank/modules/auth/auth.dart';
+import 'package:q_bank/modules/user/user.dart';
 
 extension BuildContextExtension on BuildContext {
   ScaffoldState get scaffold => Scaffold.of(this);
@@ -47,5 +49,50 @@ extension AppSettingContextExtension on BuildContext {
   AppSettingCubit get appSettingCubit => watch<AppSettingCubit>();
   LanguageType get selectedLanguage {
     return appSettingCubit.state.selectedLanguage;
+  }
+}
+
+extension AuthContextExtension on BuildContext {
+  AuthBloc get authBloc => read<AuthBloc>();
+  AuthState get authState => watch<AuthBloc>().state;
+
+  // Helper methods for easy auth state checking
+  bool get isAuthenticated => authState is AuthUserAuthenticated;
+  bool get isUnauthenticated => authState is AuthUserUnauthenticated;
+  bool get isAuthLoading => authState is AuthInitial;
+
+  UserEntity? get currentUser {
+    final state = authState;
+    return state is AuthUserAuthenticated ? state.user : null;
+  }
+
+  String? get currentUserFullName {
+    var user = currentUser;
+    if (user == null) return null;
+
+    final first = user.firstName?.capitalize();
+    final middle = user.middleName?.capitalize();
+    final last = user.lastName?.capitalize();
+
+    final fullName = [
+      first,
+      middle,
+      last,
+    ].where((part) => part?.trim().isNotEmpty ?? false).join(' ');
+
+    return fullName.isEmpty
+        ? user.email?.split("@").first.capitalize()
+        : fullName;
+  }
+
+  String? get currentUserShortName {
+    var user = currentUser;
+    if (user == null) return null;
+
+    final first = user.firstName?.capitalize();
+
+    return first.isNullOrEmpty
+        ? user.email?.split("@").first.capitalize()
+        : first;
   }
 }
