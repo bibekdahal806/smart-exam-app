@@ -48,7 +48,12 @@ class DioExceptionUtil {
         return 'Service unavailable';
       default:
         debugPrint('[DIO ERROR] $statusCode: ${data.toString()}');
-        return 'Request failed ($statusCode)';
+        try {
+          return data['message'].toString();
+        } catch (e) {
+          return 'Request failed ($statusCode)';
+        }
+      // return 'Request failed ($statusCode)';
     }
   }
 }

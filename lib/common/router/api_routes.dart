@@ -5,8 +5,8 @@ class ApiRoutes {
   static const String apiEndPoint = 'api';
 
   //api-auth
-  static const String loginEndPoint = '$apiEndPoint/student/login/';
-  static const String registerEndPoint = '$apiEndPoint/student/register/';
+  static const String loginEndPoint = '$apiEndPoint/student/login';
+  static const String registerEndPoint = '$apiEndPoint/student/register';
   static const String logoutEndPoint = '$apiEndPoint/student/logout/';
 
   //api-auth-user

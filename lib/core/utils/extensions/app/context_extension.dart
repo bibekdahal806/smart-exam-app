@@ -70,17 +70,9 @@ extension AuthContextExtension on BuildContext {
     var user = currentUser;
     if (user == null) return null;
 
-    final first = user.firstName?.capitalize();
-    final middle = user.middleName?.capitalize();
-    final last = user.lastName?.capitalize();
+    final fullName = user.name;
 
-    final fullName = [
-      first,
-      middle,
-      last,
-    ].where((part) => part?.trim().isNotEmpty ?? false).join(' ');
-
-    return fullName.isEmpty
+    return fullName.isNullOrEmpty
         ? user.email?.split("@").first.capitalize()
         : fullName;
   }
@@ -89,7 +81,7 @@ extension AuthContextExtension on BuildContext {
     var user = currentUser;
     if (user == null) return null;
 
-    final first = user.firstName?.capitalize();
+    final first = user.name?.capitalize();
 
     return first.isNullOrEmpty
         ? user.email?.split("@").first.capitalize()

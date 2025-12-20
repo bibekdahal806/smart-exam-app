@@ -1,51 +1,38 @@
 import 'package:equatable/equatable.dart';
-import 'package:q_bank/core/core.dart';
 
 class UserEntity extends Equatable {
   final int? id;
+  final String? name;
+  final String? phone;
+  final String? address;
   final String? email;
-  final String? phoneNumber;
-  final String? firstName;
-  final String? middleName;
-  final String? lastName;
-  final Gender? gender;
-  final String? profilePic;
-  final DateTime? dob;
-  final bool? phoneVerified;
-  final bool? emailVerified;
-  final String? referalCode;
-  final String? rudrakxPoints;
+  final bool? isActive;
+  final DateTime? emailVerifiedAt;
+  final DateTime? createdAt;
+  final DateTime? updatedAt;
 
   const UserEntity({
     this.id,
+    this.name,
+    this.phone,
+    this.address,
     this.email,
-    this.phoneNumber,
-    this.firstName,
-    this.middleName,
-    this.lastName,
-    this.gender,
-    this.profilePic,
-    this.dob,
-    this.phoneVerified,
-    this.emailVerified,
-    this.referalCode,
-    this.rudrakxPoints,
+    this.isActive,
+    this.emailVerifiedAt,
+    this.createdAt,
+    this.updatedAt,
   });
 
   @override
   List<Object?> get props => [
     id,
+    name,
+    phone,
+    address,
     email,
-    phoneNumber,
-    firstName,
-    middleName,
-    lastName,
-    gender,
-    profilePic,
-    dob,
-    phoneVerified,
-    emailVerified,
-    referalCode,
-    rudrakxPoints,
+    isActive,
+    emailVerifiedAt,
+    createdAt,
+    updatedAt,
   ];
 }

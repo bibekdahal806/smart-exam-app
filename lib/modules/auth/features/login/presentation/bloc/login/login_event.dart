@@ -21,3 +21,10 @@ class LoginRememberMeToggled extends LoginEvent {
   @override
   List<Object?> get props => [];
 }
+
+class LoginClearError extends LoginEvent {
+  const LoginClearError();
+
+  @override
+  List<Object?> get props => [];
+}

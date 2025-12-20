@@ -20,7 +20,7 @@ class AuthListnerWidget extends StatelessWidget {
             // User just logged in
             CustomSnackbar.showToastMessage(
               type: ToastType.info,
-              message: "Welcome back, ${state.user.firstName}!",
+              message: "Welcome back, ${state.user.name}!",
             );
 
             break;

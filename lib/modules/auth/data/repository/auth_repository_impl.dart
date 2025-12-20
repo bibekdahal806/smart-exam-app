@@ -57,7 +57,7 @@ class AuthRepositoryImpl implements AuthRepository {
       var response = await _remoteService.postResponse(
         endPoint: ApiRoutes.loginEndPoint,
         isTokenRequired: false,
-        payloadObj: {"username": email, "password": password},
+        payloadObj: {"email": email, "password": password},
       );
       var isSaved = await _saveUserTokens(response);
       if (!isSaved) {
@@ -95,7 +95,7 @@ class AuthRepositoryImpl implements AuthRepository {
       endPoint: ApiRoutes.userEndPoint,
       isTokenRequired: true,
     );
-    final userJsonData = response != null ? response['data'] : null;
+    final userJsonData = response != null ? response['data']["user"] : null;
     if (userJsonData == null || (userJsonData is Map && userJsonData.isEmpty)) {
       await _userSessionRepository.clearUserSession();
       throw AuthenticationException(Messages.getUserDataFailed);

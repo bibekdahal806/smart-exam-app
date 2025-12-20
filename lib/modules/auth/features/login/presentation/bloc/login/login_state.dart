@@ -26,7 +26,7 @@ class LoginState extends Equatable {
     email: email ?? this.email,
     password: password ?? this.password,
     isRememberMe: isRememberMe ?? this.isRememberMe,
-    error: error ?? this.error,
+    error: error,
   );
   @override
   List<Object?> get props => [

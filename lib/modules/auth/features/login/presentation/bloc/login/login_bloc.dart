@@ -15,6 +15,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc() : super(LoginState()) {
     on<LoginWithEmailPasswordSubmitted>(_onLoginWithEmailPasswordSubmitted);
     on<LoginRememberMeToggled>(_onLoginRememberMeToggled);
+    on<LoginClearError>(_onLoginClearError);
   }
 
   FutureOr<void> _onLoginWithEmailPasswordSubmitted(
@@ -46,5 +47,12 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   ) {
     var initialValue = state.isRememberMe;
     emit(state.copyWith(isRememberMe: !initialValue));
+  }
+
+  FutureOr<void> _onLoginClearError(
+    LoginClearError event,
+    Emitter<LoginState> emit,
+  ) {
+    emit(state.copyWith(error: null));
   }
 }

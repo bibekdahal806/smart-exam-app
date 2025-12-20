@@ -30,6 +30,7 @@ class LoginView extends StatelessWidget {
             type: ToastType.error,
             message: state.error ?? Messages.somethingWentWrong,
           );
+          context.read<LoginBloc>().add(LoginClearError());
         } else if (state.appLoadingState.isSuccess) {
           context.hidePopupLoading();
           CustomSnackbar.showToastMessage(

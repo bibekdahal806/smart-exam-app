@@ -13,6 +13,8 @@ class DioClient {
           milliseconds: config.connectionTimeout,
         )
         ..options.receiveTimeout = Duration(milliseconds: config.receiveTimeout)
+        // ..options.headers.putIfAbsent('Accept', () => 'application/json')
+        // ..options.headers.putIfAbsent('Content-Type', () => 'application/json')
         ..interceptors.add(
           LogInterceptor(request: true, responseBody: true, requestBody: true),
         );
