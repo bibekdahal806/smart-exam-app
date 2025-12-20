@@ -6,7 +6,7 @@ import 'package:q_bank/common/common.dart';
 import 'package:q_bank/core/core.dart';
 import 'package:q_bank/modules/app_setting/app_setting.dart';
 import 'package:q_bank/modules/auth/auth.dart';
-import 'package:q_bank/modules/onboarding/features/splash/presentation/bloc/splash/splash_cubit.dart';
+import 'package:q_bank/modules/onboarding/onboarding.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -44,7 +44,6 @@ class SplashScreenView extends StatelessWidget {
         }
       },
       child: Scaffold(
-        backgroundColor: context.customTheme.backgroundPrimary,
         body: ParentPaddingWidget(
           child: Center(
             child: Column(
@@ -70,27 +69,23 @@ class SplashScreenView extends StatelessWidget {
                   effects: [FadeEffect(), ScaleEffect()],
                   child: ParentTextWidget(
                     AppConstants.appName,
-                    style: context.textTheme.headlineLarge?.copyWith(
+                    style: context.textTheme.displaySmall?.copyWith(
                       fontWeight: AppFontWeight.extraBold,
-                      color: context.customTheme.primary,
+                      color: context.colorScheme.primary,
                     ),
                   ),
                 ),
                 Spacer(),
                 SizedBox(
                   width: context.deviceWidth * 0.4,
-                  child: LinearProgressIndicator(
-                    minHeight: 3.h,
-                    backgroundColor: context.customTheme.primary,
-                    color: context.customTheme.textPlaceholder,
-                  ),
+                  child: LinearProgressIndicator(minHeight: 3.h),
                 ),
                 AppGaps.gapH8,
                 Text(
                   "Loading...",
                   style: context.textTheme.labelMedium
                       ?.copyWith(
-                        color: context.customTheme.primary,
+                        color: context.colorScheme.primary,
                         fontWeight: AppFontWeight.semiBold,
                       )
                       .scaleTextStyleForLocale,

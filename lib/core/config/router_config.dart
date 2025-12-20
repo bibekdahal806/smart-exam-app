@@ -33,6 +33,11 @@ final router = GoRouter(
       builder: (context, state) => const LoginScreen(),
     ),
     GoRoute(
+      name: Routes.signup.name,
+      path: Routes.signup.path,
+      builder: (context, state) => const SignupScreen(),
+    ),
+    GoRoute(
       name: Routes.dashboard.name,
       path: Routes.dashboard.path,
       builder: (context, state) => const DashboardScreen(),

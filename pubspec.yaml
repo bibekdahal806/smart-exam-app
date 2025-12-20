@@ -11,6 +11,7 @@ dependencies:
   bloc_concurrency: ^0.3.0
   cached_network_image: ^3.4.1
   connectivity_plus: ^7.0.0
+  country_picker: ^2.0.27
   crypto: ^3.0.7
   cupertino_icons: ^1.0.8
   device_info_plus: ^12.3.0

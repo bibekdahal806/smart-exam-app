@@ -4,28 +4,28 @@ import 'package:go_router/go_router.dart';
 import 'package:q_bank/common/common.dart';
 import 'package:q_bank/core/core.dart';
 
-class LoginSignupInfoWidget extends StatelessWidget {
-  const LoginSignupInfoWidget({super.key});
+class SignupLoginInfoWidget extends StatelessWidget {
+  const SignupLoginInfoWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
-        text: "Don't have an account? ",
+        text: "Already have an account? ",
         style: context.textTheme.bodySmall!.copyWith(
           color: context.customTheme.textPrimary,
           fontWeight: AppFontWeight.medium,
         ),
         children: [
           TextSpan(
-            text: "Create an account",
+            text: "Login",
             style: context.textTheme.bodySmall!.copyWith(
               color: context.colorScheme.primary,
               fontWeight: AppFontWeight.bold,
             ),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                context.replaceNamed(Routes.signup.name);
+                context.replaceNamed(Routes.login.name);
               },
           ),
         ],

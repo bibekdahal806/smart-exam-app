@@ -135,7 +135,7 @@ class CustomButton extends StatelessWidget {
             ),
         constraints: constraints,
         decoration: BoxDecoration(
-          color: bgColor ?? context.customTheme.primary,
+          color: bgColor ?? context.colorScheme.primary,
           border: border,
           borderRadius: borderRadius ?? AppBorderRadius.mediumBorderRadius,
           boxShadow: boxShadow,

@@ -9,35 +9,47 @@ class CommonAuthScreenLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: context.colorScheme.primary,
-      resizeToAvoidBottomInset: false,
+      // backgroundColor: context.colorScheme.primary,
+      // resizeToAvoidBottomInset: false,
       body: SafeArea(
+        top: false,
         bottom: false,
-        child: Column(
-          mainAxisAlignment: .start,
-          crossAxisAlignment: .start,
-          mainAxisSize: .max,
+        child: Stack(
           children: [
-            AppGaps.gapHCustom(50.h),
-            CommonAuthAppNameContainer(),
-            AppGaps.gapHCustom(50.h),
-
-            Expanded(
+            Positioned(
               child: Container(
-                decoration: BoxDecoration(
-                  color: context.colorScheme.onPrimary,
-                  borderRadius: BorderRadius.horizontal(
-                    left: AppBorderRadius.chipRadius,
-                    right: AppBorderRadius.chipRadius,
-                  ),
-                  //
+                decoration: BoxDecoration(color: context.colorScheme.primary),
+                child: Column(
+                  mainAxisAlignment: .start,
+                  crossAxisAlignment: .center,
+                  mainAxisSize: .max,
+                  children: [
+                    AppGaps.gapHCustom(100.h),
+                    CommonAuthAppNameContainer(),
+                  ],
                 ),
-                child: SingleChildScrollView(child: child),
               ),
             ),
-            // Expanded(child: SingleChildScrollView(
-
-            // ))
+            Column(
+              mainAxisAlignment: .start,
+              crossAxisAlignment: .start,
+              mainAxisSize: .max,
+              children: [
+                AppGaps.gapHCustom(200.h),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: context.colorScheme.onPrimary,
+                      borderRadius: BorderRadius.vertical(
+                        top: AppBorderRadius.chipRadius,
+                        // right: AppBorderRadius.chipRadius,
+                      ),
+                    ),
+                    child: SingleChildScrollView(child: child),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
