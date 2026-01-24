@@ -1,0 +1,745 @@
+{
+  "userAuth": {
+    "reDirectUrl": "",
+    "isFetching": false,
+    "email": "",
+    "counter_time": ""
+  },
+  "userInfo": {
+    "isFetching": false,
+    "userInfo": {
+      "email": "bimal.yhhits@gmail.com",
+      "contact_number": null,
+      "contact_verified": true,
+      "email_verified": true,
+      "user_type": "STUDENT",
+      "profile_image_link": "https://lh3.googleusercontent.com/a/ACg8ocKJw3TO9u2Cyo9YtWC0cEiRB-4kyh-WC4NSR92rrmk1wUtzvYc=s96-c",
+      "auth_provider": "google",
+      "student": {
+        "email": "bimal.yhhits@gmail.com",
+        "full_name": "bimal kc",
+        "gender": "RATHER_NOT_TO_MENTION",
+        "student_public_id": "S14897501U3VM",
+        "student_referral_code": "TM0KWER8"
+      },
+      "pending_results": [],
+      "practice_exam_given": 1,
+      "live_exam_given": 0,
+      "reward_points": 0,
+      "average_score": -0.2
+    },
+    "examTypes": [],
+    "tags": {},
+    "surveyData": "",
+    "answerPlanSubscription": {
+      "total_purchased_solution_sets": 2,
+      "total_used_solution_sets": 0,
+      "modified_at": "2025/12/28 14:26:55 +0000"
+    },
+    "userSelectedTags": [
+      {
+        "id": 20,
+        "tag_name": "NEA",
+        "tag_value": "nea"
+      },
+      {
+        "id": 13,
+        "tag_name": "Computer Operator",
+        "tag_value": "computer operator"
+      }
+    ]
+  },
+  "userExamData": {
+    "isFetching": false,
+    "mcqExamSet": {
+      "number_of_question": 100,
+      "hall_name": "McqHall",
+      "profile_image_link": "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/profilePicDir/f753719f-fcc4-47c6-a676-5ed00f504ed9.png",
+      "hall_user_name": "demo",
+      "mcq_set": {
+        "attended": 272,
+        "mcq_id": "M1729JDLGU5EH",
+        "hall": {
+          "hall_id": 1,
+          "hall_user_name": "demo",
+          "name": "McqHall",
+          "profile_image_link": "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/profilePicDir/f753719f-fcc4-47c6-a676-5ed00f504ed9.png",
+          "cover_image_link": "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/coverPicDir/6184bf53-505e-40fc-a603-35940a02b821.jpeg",
+          "hall_type": "INSTITUTE"
+        },
+        "title": "Loksewa Officer Level MCQ Set 1 - 100 Questions with Full Hints ",
+        "description": "लोक सेवा आयोगअप्राविधिक (प्रशासन,नेपाल परराष्ट्र, लेखापरीक्षण र व्यवस्थापिका संसद सेवा), राजपत्रांकित तृतीय श्रेणी, शाखा अधिकृत वा सो सरह पदको खुला प्रतियोगितात्मक परीक्षा\nMaster the Lok Sewa Aayog Officer Level (Adhikrit) exam with 100+ MCQs covering Administrative Aptitude, Governance, and IT Skills. Practice now on MCQhall for 2025 success!\n\nDisclaimer: This platform is an independent educational initiative and is not affiliated with or endorsed by the Government of Nepal or any governmental body. It is designed solely to help students and aspirants practice for competitive examinations conducted by both governmental and non-governmental institutions.",
+        "price": 0,
+        "average_rating": 5,
+        "average_score": 7.22148,
+        "published_at": "2025/09/07 15:23:14 +0000",
+        "mcq_status": "PUBLISHED",
+        "mcq_type": "FREE",
+        "exam_type": {
+          "exam_detail_category": {
+            "exam_detail_category_id": 228,
+            "level_one": "Government Job",
+            "level_two": "Loksewa",
+            "level_three": "नेपाल न्याय, परराष्ट्र, प्रशासन, लेखापरीक्षण र संसद (संयुक्त र एकिकृत परीक्षा) (Nepal Nyaye Prarastra Lekhaparichan Ra Samsad)",
+            "level_four": "शाखा अधिकृत सरह (Sakha Adhikrit Saraha)"
+          },
+          "time_min": 90,
+          "negative_marking": -0.2,
+          "number_of_question": 100,
+          "full_marks": 100,
+          "pass_marks": 50
+        },
+        "exam_mode": {
+          "mode": "PRACTICE",
+          "exam_start_time": null,
+          "attending_student": 0,
+          "exam_status": null,
+          "live_to_practice": false
+        },
+        "mcq_image_link": null,
+        "review": [],
+        "tags": [
+          "Officer",
+          "Loksewa Non-Technical"
+        ],
+        "bookmark": false,
+        "exam_id": null,
+        "is_paid": true,
+        "alert": false,
+        "result_status": "PUBLISHED",
+        "joined": true,
+        "attended_date": "2025/12/28 14:28:02 +0000",
+        "answer_purchased": null
+      },
+      "exam_id": "E869284GVZ6",
+      "time_min": 90,
+      "negative_marking": -0.2,
+      "question_data": "a long string of question data",
+      "exam_mode": {
+        "mode": "PRACTICE",
+        "exam_start_time": null,
+        "attending_student": 0,
+        "exam_status": null,
+        "live_to_practice": false
+      }
+    },
+    "mcqExamResult": {
+      "E869284GVZ6": {
+        "hall_name": "McqHall",
+        "profile_image_link": "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/profilePicDir/f753719f-fcc4-47c6-a676-5ed00f504ed9.png",
+        "hall_user_name": "demo",
+        "title": "Loksewa Officer Level MCQ Set 1 - 100 Questions with Full Hints ",
+        "mcq_id": "M1729JDLGU5EH",
+        "exam_id": "E869284GVZ6",
+        "total_question": 100,
+        "live_score": -0.2,
+        "practice_score": -0.2,
+        "full_marks": 100,
+        "live_rank": 0,
+        "practice_rank": 269,
+        "time_min": 90,
+        "total_participant": 273,
+        "given_as": "PRACTICE",
+        "question_id_list": "array of question stats",
+        "ranking": [
+          {
+            "rank": 1,
+            "name": "susmita sharma",
+            "score": 55.6,
+            "self": false
+          },
+          {
+            "rank": 2,
+            "name": "Krishi Gyan",
+            "score": 53,
+            "self": false
+          },
+          {
+            "rank": 3,
+            "name": "Anuj Poudel New Hi 1",
+            "score": 51.6,
+            "self": false
+          },
+          {
+            "rank": 4,
+            "name": "Gravity is Overrated",
+            "score": 48.4,
+            "self": false
+          },
+          {
+            "rank": 5,
+            "name": "Shiv Chandan Kumar",
+            "score": 46.2,
+            "self": false
+          }
+        ],
+        "review": null,
+        "tips": "tip data for questions 1-5",
+        "solution_data": "solution data for first 5 questions",
+        "exam_mode": {
+          "mode": "PRACTICE",
+          "exam_start_time": null,
+          "attending_student": 0,
+          "exam_status": null,
+          "live_to_practice": false
+        },
+        "start_time": "2025/12/28 14:28:02 +0000",
+        "submit_time": "2025/12/28 14:28:42 +0000",
+        "total_time_taken": "39",
+        "reward_point": 0,
+        "answer_purchased": false,
+        "number_of_attempt": 1
+      }
+    },
+    "mcqExamSolution": {},
+    "currentExamData": {
+      "id": "-1"
+    },
+    "answerViewPlan": [
+      {
+        "id": "AV101OCY35GYG",
+        "name": "Basic",
+        "solution_sets": 1,
+        "original_price": 15,
+        "current_price": 15,
+        "features": [
+          "Unlimited Retry",
+          "Complete answer viewing"
+        ]
+      },
+      {
+        "id": "AV102FESR94MK",
+        "name": "Premium",
+        "solution_sets": 30,
+        "original_price": 300,
+        "current_price": 300,
+        "features": [
+          "Rs 10 per set",
+          "Unlimited Retry",
+          "Complete answer viewing"
+        ]
+      },
+      {
+        "id": "AV103MI8XMYC6",
+        "name": "Premium Plus",
+        "solution_sets": 50,
+        "original_price": 500,
+        "current_price": 500,
+        "features": [
+          "Rs 10 per set",
+          "Unlimited Retry",
+          "Complete answer viewing"
+        ]
+      }
+    ]
+  },
+  "creatorHallData": {
+    "isFetching": false,
+    "mcqSet": {},
+    "mcqAnswerSet": {},
+    "dataLoaded": false,
+    "mcqDetailSet": {},
+    "publishedMcqSet": {},
+    "pendingMcqSet": {},
+    "errorMcqSet": {},
+    "underReviewSet": {},
+    "reportList": {},
+    "galleryImage": {},
+    "bankDetail": {},
+    "earning": {},
+    "earningHistory": {}
+  },
+  "mcqInfo": {
+    "mcqData": {}
+  },
+  "userDashBoardData": {
+    "isFetching": false,
+    "mcqData": {
+      "current_page": 0,
+      "total_items": 29,
+      "total_pages": 3,
+      "data": "array of mcq sets"
+    },
+    "wishListData": [
+      {
+        "attended": 273,
+        "mcq_id": "M1729JDLGU5EH",
+        "hall": {
+          "hall_id": 1,
+          "hall_user_name": "demo",
+          "name": "McqHall",
+          "profile_image_link": "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/profilePicDir/f753719f-fcc4-47c6-a676-5ed00f504ed9.png",
+          "cover_image_link": "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/coverPicDir/6184bf53-505e-40fc-a603-35940a02b821.jpeg",
+          "hall_type": "INSTITUTE"
+        },
+        "title": "Loksewa Officer Level MCQ Set 1 - 100 Questions with Full Hints ",
+        "description": "लोक सेवा आयोगअप्राविधिक (प्रशासन,नेपाल परराष्ट्र, लेखापरीक्षण र व्यवस्थापिका संसद सेवा), राजपत्रांकित तृतीय श्रेणी, शाखा अधिकृत वा सो सरह पदको खुला प्रतियोगितात्मक परीक्षा\nMaster the Lok Sewa Aayog Officer Level (Adhikrit) exam with 100+ MCQs covering Administrative Aptitude, Governance, and IT Skills. Practice now on MCQhall for 2025 success!\n\nDisclaimer: This platform is an independent educational initiative and is not affiliated with or endorsed by the Government of Nepal or any governmental body. It is designed solely to help students and aspirants practice for competitive examinations conducted by both governmental and non-governmental institutions.",
+        "price": 0,
+        "average_rating": 5,
+        "average_score": 7.14139,
+        "published_at": "2025/09/07 15:23:14 +0000",
+        "mcq_status": "PUBLISHED",
+        "mcq_type": "FREE",
+        "exam_type": {
+          "exam_detail_category": {
+            "exam_detail_category_id": 228,
+            "level_one": "Government Job",
+            "level_two": "Loksewa",
+            "level_three": "नेपाल न्याय, परराष्ट्र, प्रशासन, लेखापरीक्षण र संसद (संयुक्त र एकिकृत परीक्षा) (Nepal Nyaye Prarastra Lekhaparichan Ra Samsad)",
+            "level_four": "शाखा अधिकृत सरह (Sakha Adhikrit Saraha)"
+          },
+          "time_min": 90,
+          "negative_marking": -0.2,
+          "number_of_question": 100,
+          "full_marks": 100,
+          "pass_marks": 50
+        },
+        "exam_mode": {
+          "mode": "PRACTICE",
+          "exam_start_time": null,
+          "attending_student": 0,
+          "exam_status": null,
+          "live_to_practice": false
+        },
+        "mcq_image_link": null,
+        "review": [],
+        "tags": [
+          "Officer",
+          "Loksewa Non-Technical"
+        ],
+        "bookmark": true,
+        "exam_id": "E869284GVZ6",
+        "is_paid": true,
+        "alert": false,
+        "result_status": "PUBLISHED",
+        "joined": true,
+        "attended_date": "2025/12/28 14:28:02 +0000",
+        "answer_purchased": null
+      }
+    ],
+    "libraryData": {
+      "current_page": 0,
+      "total_items": 1,
+      "total_pages": 1,
+      "data": "array of exam results"
+    },
+    "recommendedLiveExams": [],
+    "recommendedMockExams": "array of mock exams",
+    "upcomingExams": [],
+    "recentResults": [],
+    "recommendedHall": [],
+    "hallList": "array of hall data",
+    "detailMcqSets": {
+      "M1729JDLGU5EH": {
+        "attended": 272,
+        "mcq_id": "M1729JDLGU5EH",
+        "hall": {
+          "hall_id": 1,
+          "hall_user_name": "demo",
+          "name": "McqHall",
+          "profile_image_link": "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/profilePicDir/f753719f-fcc4-47c6-a676-5ed00f504ed9.png",
+          "cover_image_link": "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/coverPicDir/6184bf53-505e-40fc-a603-35940a02b821.jpeg",
+          "hall_type": "INSTITUTE"
+        },
+        "title": "Loksewa Officer Level MCQ Set 1 - 100 Questions with Full Hints ",
+        "description": "लोक सेवा आयोगअप्राविधिक (प्रशासन,नेपाल परराष्ट्र, लेखापरीक्षण र व्यवस्थापिका संसद सेवा), राजपत्रांकित तृतीय श्रेणी, शाखा अधिकृत वा सो सरह पदको खुला प्रतियोगितात्मक परीक्षा\nMaster the Lok Sewa Aayog Officer Level (Adhikrit) exam with 100+ MCQs covering Administrative Aptitude, Governance, and IT Skills. Practice now on MCQhall for 2025 success!\n\nDisclaimer: This platform is an independent educational initiative and is not affiliated with or endorsed by the Government of Nepal or any governmental body. It is designed solely to help students and aspirants practice for competitive examinations conducted by both governmental and non-governmental institutions.",
+        "price": 0,
+        "average_rating": 5,
+        "average_score": 7.22148,
+        "published_at": "2025/09/07 15:23:14 +0000",
+        "mcq_status": "PUBLISHED",
+        "mcq_type": "FREE",
+        "exam_type": {
+          "exam_detail_category": {
+            "exam_detail_category_id": 228,
+            "level_one": "Government Job",
+            "level_two": "Loksewa",
+            "level_three": "नेपाल न्याय, परराष्ट्र, प्रशासन, लेखापरीक्षण र संसद (संयुक्त र एकिकृत परीक्षा) (Nepal Nyaye Prarastra Lekhaparichan Ra Samsad)",
+            "level_four": "शाखा अधिकृत सरह (Sakha Adhikrit Saraha)"
+          },
+          "time_min": 90,
+          "negative_marking": -0.2,
+          "number_of_question": 100,
+          "full_marks": 100,
+          "pass_marks": 50
+        },
+        "exam_mode": {
+          "mode": "PRACTICE",
+          "exam_start_time": null,
+          "attending_student": 0,
+          "exam_status": null,
+          "live_to_practice": false
+        },
+        "mcq_image_link": null,
+        "review": "array of reviews",
+        "tags": [
+          "Officer",
+          "Loksewa Non-Technical"
+        ],
+        "bookmark": true,
+        "exam_id": null,
+        "is_paid": false,
+        "alert": false,
+        "result_status": "PUBLISHED",
+        "joined": false,
+        "attended_date": null,
+        "answer_purchased": false
+      }
+    },
+    "bannerNotice": [],
+    "searchResult": [],
+    "classList": [],
+    "classDetailData": {},
+    "singleHallData": {
+      "demo": {
+        "id": 1,
+        "name": "McqHall",
+        "email": "contact@mcqhall.com",
+        "hall_user_name": "demo",
+        "hall_description": null,
+        "hall_address": {
+          "country": "Nepal",
+          "state": "Province 3",
+          "district": "Lalitpur",
+          "city": "Kusunti",
+          "street_address": null
+        },
+        "website": "https://mcqhall.com/",
+        "contact_number": null,
+        "telephone_number": "9863021119",
+        "profile_image_link": "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/profilePicDir/f753719f-fcc4-47c6-a676-5ed00f504ed9.png",
+        "cover_image_link": "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/coverPicDir/6184bf53-505e-40fc-a603-35940a02b821.jpeg",
+        "verified": null,
+        "social_media": {
+          "facebook": "https://www.facebook.com/mcqhall",
+          "twitter": "https://twitter.com/mcqhall",
+          "linkedin": "https://www.linkedin.com/in/mcqhall/",
+          "instagram": "https://www.instagram.com/mcqhall/",
+          "youtube": null
+        },
+        "tags": [
+          "Israel Caregiver",
+          "Private Bank",
+          "Private Job",
+          "Topic Wise Test",
+          "Loksewa Non-Technical",
+          "Kharidar",
+          "Officer",
+          "Subba",
+          "Nasu",
+          "Government Job",
+          "Anushandhan Sahayak",
+          "After SEE",
+          "Demo",
+          "Loksewa Technical",
+          "Civil Engineering",
+          "Civil Engineer",
+          "Nepal Engineering",
+          "Civil Engineer Officer Level 3",
+          "Participate and Win Quiz",
+          "RBB",
+          "EBL",
+          "Sanima Bank",
+          "NCBL",
+          "ADBL",
+          "Banking Sector",
+          "NBL",
+          "NMB",
+          "NRB",
+          "Sakha Adhikrit",
+          "Inspector"
+        ],
+        "total_question_sets": 157,
+        "exam_detail_category_ids": null,
+        "hall_type": "INSTITUTE"
+      },
+      "dipaksah": {
+        "id": 262,
+        "name": "Dipak Sah",
+        "email": "dipaksah02751@gmail.com",
+        "hall_user_name": "dipaksah",
+        "hall_description": "Engineering service, Civil Engineering Exam Model, Civil Sub-engineer Exam Model, Civil Engineering Assistant level Exam Model, Government job सम्बन्धि अरु थप जानकारीको लागि Facebook page मा जोडिनु होला।",
+        "hall_address": {
+          "country": "Nepal",
+          "state": "Province 2",
+          "district": "Dhanusa",
+          "city": "Janakpur",
+          "street_address": null
+        },
+        "website": null,
+        "contact_number": "9801602751",
+        "telephone_number": "9801602751",
+        "profile_image_link": "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/profilePicDir/5ae1bfcb-5fe0-4b51-8d06-2472aeef8088.png",
+        "cover_image_link": "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/coverPicDir/7ddbc642-914e-48ea-a445-f5143cace52a.jpg",
+        "verified": null,
+        "social_media": {
+          "facebook": "https://www.facebook.com/profile.php?id=100056465400291",
+          "twitter": null,
+          "linkedin": null,
+          "instagram": "https://www.instagram.com/deepakshah568/",
+          "youtube": null
+        },
+        "tags": [
+          "Civil Overseer",
+          "Civil Sub-Engineer",
+          "Civil Engineer",
+          "Civil Sub-Overseer",
+          "Nepal Engineering",
+          "Civil Assistant Sub-Engineer",
+          "Civil Engineering",
+          "Government Job"
+        ],
+        "total_question_sets": 169,
+        "exam_detail_category_ids": null,
+        "hall_type": "INDIVIDUAL"
+      }
+    },
+    "dataLoaded": false
+  },
+  "openData": {
+    "isFetching": false,
+    "examTypes": [],
+    "examTypePageData": {},
+    "openSingleMcqData": {},
+    "tags": [],
+    "tagsList": "array of tags",
+    "videoLinkData": [
+      {
+        "title": "McqHall Online Exam Platform New Solution Package Scheme",
+        "videoId": "Mfp3JNZrHBk",
+        "thumbnail": "https://img.youtube.com/vi/Mfp3JNZrHBk/0.jpg"
+      },
+      {
+        "title": "How to Buy Solution Package for McqHall Online Exams",
+        "videoId": "0a1PvkZhhzo",
+        "thumbnail": "https://img.youtube.com/vi/0a1PvkZhhzo/0.jpg"
+      }
+    ],
+    "mobBottomSheetCloseTime": "2025-12-28T16:30:51.343Z"
+  },
+  "hallPaymentData": {
+    "isFetching": false,
+    "earning": {},
+    "mcqEarning": [],
+    "payouts": [],
+    "transactions": [],
+    "bankDetail": {},
+    "dailyEarning": []
+  },
+  "hallDashBoardData": {
+    "isFetching": false,
+    "dashBoardData": {},
+    "examOverView": []
+  },
+  "userPaymentData": {
+    "isFetching": false,
+    "paymentLog": []
+  },
+  "hallMcqData": {
+    "isFetching": false,
+    "mcqExamOverView": [],
+    "liveResult": {},
+    "sortedData": []
+  },
+  "adminData": {
+    "isFetching": false,
+    "adminMcqs": [],
+    "downloadMcqFile": "",
+    "userList": {},
+    "hallList": {},
+    "contactUsList": {},
+    "feedbackList": {},
+    "reportList": [],
+    "mcqDetail": {},
+    "adminStat": {},
+    "answerViewPlan": [],
+    "premiumFeatureEarning": {},
+    "transactionData": {},
+    "hallReport": {},
+    "mcqCollection": {},
+    "collectionEarning": {},
+    "collectionTransaction": {},
+    "collectionMcqResult": {}
+  },
+  "adminMcqCollection": {
+    "isFetching": false,
+    "collectionList": {
+      "current_page": 0,
+      "total_items": 10,
+      "total_pages": 1,
+      "data": "array of collections"
+    },
+    "individualCollectionMcq": [],
+    "individualCollection": {
+      "CL109Z7XN8V2R": {
+        "name": "NBL | तह-३ कनिष्ठ सहायक | 30 Sets",
+        "description": "Loksewa Nepal Bank Limited(NBL) Prasasan Sewa Level-3 Exam लोक सेवा नेपाल बैंक लिमिटेड, प्रशासन सेवा, प्रशासन समुह तह-३ कनिष्ठ सहायक पदको खु‌ला प्रतियोगितात्मक परिक्षा पूर्ण रूपमा पाठ्यक्रम आधारित\n\nDisclaimer: This platform is an independent educational initiative and is not affiliated with or endorsed by the Government of Nepal or any governmental body. It is designed solely to help students and aspirants practice for competitive examinations conducted by both governmental and non-governmental institutions.",
+        "original_price": 300,
+        "current_price": 240,
+        "features": [
+          "Fully Syllabus Based",
+          "With Tips and Explanations",
+          "30 MCQ Model Sets",
+          "Instant Result"
+        ],
+        "validity_period": 365,
+        "full_marks": 40,
+        "time_mins": 30,
+        "language_type": "NEPALI",
+        "tags": [
+          "NBL",
+          "Banking Sector",
+          "Government Job"
+        ],
+        "image_path": "collectionPicDir/0aa716d9-ba32-459b-93b5-729716341a34.png",
+        "negative_marking": -0.2,
+        "pass_marks": 16,
+        "number_of_questions": 20,
+        "collection_type": "PAID",
+        "exam_detail_category_id": null,
+        "trial_sets": 4,
+        "cover_image_path": "collectionPicDir/588f2cad-b4b2-4c5e-a05b-41361c85082f.png",
+        "id": "CL109Z7XN8V2R",
+        "modified_at": "2025/07/08 05:26:15 +0000",
+        "purchased": false,
+        "base_path": "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/",
+        "mcq_set_number": 30,
+        "valid_till": null,
+        "student_collection_status": "ACTIVE",
+        "purchased_number": 261
+      }
+    },
+    "collectionReport": {},
+    "collectionStudent": {}
+  },
+  "userMcqCollection": {
+    "isFetching": false,
+    "collectionList": {
+      "current_page": 0,
+      "total_items": 10,
+      "total_pages": 1,
+      "data": "array of collections"
+    },
+    "individualCollection": {
+      "CL109Z7XN8V2R": {
+        "name": "NBL | तह-३ कनिष्ठ सहायक | 30 Sets",
+        "description": "Loksewa Nepal Bank Limited(NBL) Prasasan Sewa Level-3 Exam लोक सेवा नेपाल बैंक लिमिटेड, प्रशासन सेवा, प्रशासन समुह तह-३ कनिष्ठ सहायक पदको खु‌ला प्रतियोगितात्मक परिक्षा पूर्ण रूपमा पाठ्यक्रम आधारित\n\nDisclaimer: This platform is an independent educational initiative and is not affiliated with or endorsed by the Government of Nepal or any governmental body. It is designed solely to help students and aspirants practice for competitive examinations conducted by both governmental and non-governmental institutions.",
+        "original_price": 300,
+        "current_price": 240,
+        "features": [
+          "Fully Syllabus Based",
+          "With Tips and Explanations",
+          "30 MCQ Model Sets",
+          "Instant Result"
+        ],
+        "validity_period": 365,
+        "full_marks": 40,
+        "time_mins": 30,
+        "language_type": "NEPALI",
+        "tags": [
+          "NBL",
+          "Banking Sector",
+          "Government Job"
+        ],
+        "image_path": "collectionPicDir/0aa716d9-ba32-459b-93b5-729716341a34.png",
+        "negative_marking": -0.2,
+        "pass_marks": 16,
+        "number_of_questions": 20,
+        "collection_type": "PAID",
+        "exam_detail_category_id": null,
+        "trial_sets": 4,
+        "cover_image_path": "collectionPicDir/588f2cad-b4b2-4c5e-a05b-41361c85082f.png",
+        "id": "CL109Z7XN8V2R",
+        "modified_at": "2025/07/08 05:26:15 +0000",
+        "purchased": false,
+        "base_path": "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/",
+        "mcq_set_number": 30,
+        "valid_till": null,
+        "student_collection_status": "ACTIVE",
+        "purchased_number": 261
+      }
+    },
+    "individualCollectionMcq": {
+      "CL109Z7XN8V2R": {
+        "collection_id": "CL109Z7XN8V2R",
+        "mcqs": "array of mcqs"
+      }
+    },
+    "collectionMcqQuestions": {
+      "number_of_question": 20,
+      "mcq_set": {
+        "id": "MN352V5T28AEF",
+        "title": "NBL Level 3 Set 1",
+        "priority": null,
+        "exam": null,
+        "purchased": false
+      },
+      "exam_id": "NE20728493E9",
+      "time_min": 30,
+      "negative_marking": -0.2,
+      "question_data": "array of questions",
+      "exam_mode": {
+        "mode": "PRACTICE",
+        "exam_start_time": null,
+        "attending_student": 0,
+        "exam_status": null,
+        "live_to_practice": false
+      },
+      "base_path": "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/"
+    },
+    "collectionMcqResult": {
+      "NE20728493E9": {
+        "title": "NBL Level 3 Set 1",
+        "name": "NBL | तह-३ कनिष्ठ सहायक | 30 Sets",
+        "mcq_id": "MN352V5T28AEF",
+        "exam_id": "NE20728493E9",
+        "total_question": 20,
+        "score": 0,
+        "full_marks": 40,
+        "rank": 9706,
+        "time_min": 30,
+        "total_participant": 12310,
+        "question_id_list": "array of question stats",
+        "tips": "tip data for questions",
+        "solution_data": "solution data",
+        "exam_mode": {
+          "mode": "PRACTICE",
+          "exam_start_time": null,
+          "attending_student": 0,
+          "exam_status": null,
+          "live_to_practice": false
+        },
+        "start_time": "2025/12/28 14:33:38 +0000",
+        "submit_time": "2025/12/28 14:34:30 +0000",
+        "total_time_taken": "51",
+        "priority": 1,
+        "collection_id": "CL109Z7XN8V2R",
+        "trial_sets": 4,
+        "original_price": 300,
+        "current_price": 240,
+        "review": null,
+        "features": [
+          "Fully Syllabus Based",
+          "With Tips and Explanations",
+          "30 MCQ Model Sets",
+          "Instant Result"
+        ],
+        "base_path": "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/"
+      }
+    }
+  },
+  "creatorClassData": {
+    "isFetching": false,
+    "classDetailSet": {},
+    "classList": [],
+    "studentList": [],
+    "pendingStudentList": [],
+    "classMcq": [],
+    "classStat": {},
+    "classMcqStat": {}
+  },
+  "_persist": {
+    "version": -1,
+    "rehydrated": true
+  }
+}

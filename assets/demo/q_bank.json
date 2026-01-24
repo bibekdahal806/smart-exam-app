@@ -1,0 +1,107 @@
+
+
+{
+  "mcqExamSet": {
+    "number_of_question": 50,
+    "hall_name": "NEA Preparation",
+    "profile_image_link": "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/profilePicDir/176450a7-8465-4d5a-b3ef-3f2eadf3b417.png",
+    "hall_user_name": "nea_preparation",
+    "mcq_set": {
+      "attended": 168,
+      "mcq_id": "M1670WOBY8CE7",
+      "hall": {
+        "hall_id": 218,
+        "hall_user_name": "nea_preparation",
+        "name": "NEA Preparation",
+        "profile_image_link": "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/profilePicDir/176450a7-8465-4d5a-b3ef-3f2eadf3b417.png",
+        "cover_image_link": "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/coverPicDir/f7638475-3c10-472d-b56b-81e5bdbe609f.jpeg",
+        "hall_type": "INDIVIDUAL"
+      },
+      "title": "Set-28|Loksewa NEA Level 3 Model Set Based on New Syllabus",
+      "description": "नेपाल‌ विद्युत प्राधिकरण प्राविधिक सेवा...",
+      "price": 0,
+      "average_rating": 5,
+      "average_score": 10.4898,
+      "published_at": "2024/06/05 14:14:02 +0000",
+      "mcq_status": "PUBLISHED",
+      "mcq_type": "FREE",
+      "exam_type": {
+        "time_min": 45,
+        "negative_marking": -0.2,
+        "number_of_question": 50,
+        "full_marks": 50,
+        "pass_marks": 20
+      },
+      "exam_mode": {
+        "mode": "PRACTICE",
+        "exam_start_time": null,
+        "attending_student": 0,
+        "exam_status": null,
+        "live_to_practice": false
+      },
+      "tags": ["NEA Level 3", "NEA"],
+      "bookmark": false,
+      "joined": true,
+      "attended_date": "2026/01/04 16:54:15 +0000"
+    },
+    "exam_id": "E869870UH2S",
+    "time_min": 45,
+    "negative_marking": -0.2,
+    "question_data": [
+      {
+        "id": 1,
+        "question_detail": "The property of conductor due to which it ease the current to pass is?",
+        "question_type": "image",
+        "option_list": [
+          "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/profilePicDir/176450a7-8465-4d5a-b3ef-3f2eadf3b417.png",
+          "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/profilePicDir/176450a7-8465-4d5a-b3ef-3f2eadf3b417.png",
+          "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/profilePicDir/176450a7-8465-4d5a-b3ef-3f2eadf3b417.png",
+          "https://mcqhall-storage.s3.ap-south-1.amazonaws.com/profilePicDir/176450a7-8465-4d5a-b3ef-3f2eadf3b417.png"
+        ]
+      },
+      {
+        "id": 2,
+        "question_detail": "The Kirchhoff’s current law is applicable to only",
+        "question_type": "string",
+        "option_list": [
+          "Closed loop in network",
+          "Electronic circuits",
+          "Junctions in a network",
+          "Electric circuit"
+        ]
+      }
+    ]
+  },
+  "currentExamData": {
+    "id": "M1670WOBY8CE7",
+    "state": {
+      "answers": {},
+      "duration": 2552,
+      "active_question_index": 0,
+      "marked_questions_ids": [],
+      "loading": false
+    },
+    "expiry": "Sun, Jan 4, 2026 11:25 PM"
+  },
+  "answerViewPlan": [
+    {
+      "id": "AV101OCY35GYG",
+      "name": "Basic",
+      "solution_sets": 1,
+      "current_price": 15,
+      "features": ["Unlimited Retry", "Complete answer viewing"]
+    },
+    {
+      "id": "AV102FESR94MK",
+      "name": "Premium",
+      "solution_sets": 30,
+      "current_price": 300,
+      "features": ["Rs 10 per set", "Unlimited Retry", "Complete answer viewing"]
+    }
+  ]
+}
+
+
+examType{
+   mcq, subjective
+}

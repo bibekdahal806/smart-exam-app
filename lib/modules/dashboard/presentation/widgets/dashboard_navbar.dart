@@ -18,15 +18,24 @@ class DashboardNavbarWidget extends StatelessWidget {
       },
       builder: (context, state) {
         return NavigationBar(
-          // backgroundColor: context.customTheme.backgroundPrimary,
           selectedIndex: state.currentIndex,
           onDestinationSelected: (index) async {
             BlocProvider.of<BottomNavigationCubit>(context).changePage(index);
           },
           destinations: [
             NavigationDestination(icon: Icon(Icons.home), label: "Home"),
-            NavigationDestination(icon: Icon(Icons.home), label: "Home2"),
-            NavigationDestination(icon: Icon(Icons.home), label: "Home3"),
+            NavigationDestination(
+              icon: Icon(Icons.chrome_reader_mode_rounded),
+              label: "Exams",
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.bookmark_rounded),
+              label: "Bookmarks",
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.person_2_rounded),
+              label: "Profile",
+            ),
           ],
           //
         );

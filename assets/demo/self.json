@@ -1,0 +1,78 @@
+{
+  "examSet": {
+    "exam_id": "EXAM_869870UH2S",
+    "title": "NEA Level 3 Model Test – Set 28",
+    "description": "Model question set based on the new NEA syllabus",
+    "subject_tags": ["NEA Level 3", "Electrical"],
+    "exam_type": "MCQ",
+    "mode": "PRACTICE",
+    "status": "PUBLISHED",
+
+    "created_by": {
+      "teacher_id": "T218",
+      "teacher_name": "NEA Preparation",
+      "profile_image": "https://example.com/profile.png"
+    },
+
+    "exam_config": {
+      "total_questions": 50,
+      "time_limit_minutes": 45,
+      "full_marks": 50,
+      "pass_marks": 20,
+      "negative_marking": -0.2
+    },
+
+    "statistics": {
+      "total_attempts": 168,
+      "average_score": 10.49,
+      "average_rating": 5
+    },
+
+    "pricing": {
+      "access_type": "FREE",
+      "price": 0
+    },
+
+    "schedule": {
+      "start_time": null,
+      "end_time": null
+    },
+
+    "question_bank": [
+      {
+        "question_id": 1,
+        "question_text": "The property of conductor due to which it allows current to pass easily is?",
+        "question_format": "IMAGE",
+        "options": [
+          {
+            "option_id": "A",
+            "value": "https://example.com/option1.png"
+          },
+          {
+            "option_id": "B",
+            "value": "https://example.com/option2.png"
+          },
+          {
+            "option_id": "C",
+            "value": "https://example.com/option3.png"
+          },
+          {
+            "option_id": "D",
+            "value": "https://example.com/option4.png"
+          }
+        ]
+      },
+      {
+        "question_id": 2,
+        "question_text": "Kirchhoff’s Current Law is applicable to:",
+        "question_format": "TEXT",
+        "options": [
+          { "option_id": "A", "value": "Closed loop in a network" },
+          { "option_id": "B", "value": "Electronic circuits only" },
+          { "option_id": "C", "value": "Junctions in a network" },
+          { "option_id": "D", "value": "Electric circuit" }
+        ]
+      }
+    ]
+  }
+}
