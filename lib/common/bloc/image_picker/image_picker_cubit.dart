@@ -11,11 +11,16 @@ class ImagePickerCubit extends Cubit<ImagePickerState> {
   final ImagePickerHelper _imagePickerHelper;
   ImagePickerCubit(this._imagePickerHelper) : super(const ImagePickerState());
 
+  Future<void> setImagePickerStatus({bool? isSingleImagePicker}) async {
+    return emit(state.copyWith(isSingleImagePicker: isSingleImagePicker));
+  }
+
   Future<void> captureImage() async {
     try {
       XFile? file = await _imagePickerHelper.cameraCapture();
       if (file != null) {
-        return emit(state.copyWith(file: File(file.path)));
+        final newFiles = uniqueFiles(state.files, [File(file.path)]);
+        return emit(state.copyWith(files: newFiles));
       } else {
         return emit(
           state.copyWith(error: "Something went wrong while picking image."),
@@ -30,7 +35,8 @@ class ImagePickerCubit extends Cubit<ImagePickerState> {
     try {
       XFile? file = await _imagePickerHelper.pickImageFromGallery();
       if (file != null) {
-        return emit(state.copyWith(file: File(file.path)));
+        final newFiles = uniqueFiles(state.files, [File(file.path)]);
+        return emit(state.copyWith(files: newFiles, error: null));
       } else {
         return emit(
           state.copyWith(error: "Something went wrong while picking image."),
@@ -45,18 +51,9 @@ class ImagePickerCubit extends Cubit<ImagePickerState> {
     try {
       List<XFile> files = await _imagePickerHelper.pickMultipleImages();
       if (files.isNotEmpty) {
-        var previousFiles = List<File>.from(state.files);
-
-        // Add only unique files based on their path
-        for (var file in files) {
-          var newFile = File(file.path);
-          if (!previousFiles.any(
-            (existingFile) => existingFile.path == newFile.path,
-          )) {
-            previousFiles.add(newFile);
-          }
-        }
-        return emit(state.copyWith(files: previousFiles));
+        var incomingFiles = files.map((e) => File(e.path)).toList();
+        var newFiles = uniqueFiles(state.files, incomingFiles);
+        return emit(state.copyWith(files: newFiles));
       } else {
         return emit(
           state.copyWith(error: "Something went wrong while picking image."),
@@ -79,31 +76,53 @@ class ImagePickerCubit extends Cubit<ImagePickerState> {
     }
   }
 
-  Future<void> clearSigleFile() async {
+  Future<void> clearAllFiles() async {
     try {
-      return emit(state.copyWith(file: null));
+      return emit(state.copyWith(files: []));
     } catch (e) {
       return emit(state.copyWith(error: e.toString()));
     }
+  }
+
+  List<File> uniqueFiles(List<File> existingFiles, List<File> incomingFiles) {
+    if (state.isSingleImagePicker) return incomingFiles;
+    final paths = existingFiles.map((file) => file.path).toSet();
+    final result = [...existingFiles];
+    //add only unique files based on their paths.
+    for (final file in incomingFiles) {
+      if (!paths.contains(file.path)) {
+        result.add(file);
+      }
+    }
+    return result;
   }
 }
 
 // ImagePickerState
 class ImagePickerState extends Equatable {
-  final File? file;
   final List<File> files;
-  final String error;
+  final String? error;
+  final bool isSingleImagePicker;
 
-  const ImagePickerState({this.file, this.files = const [], this.error = ''});
+  const ImagePickerState({
+    this.files = const [],
+    this.error,
+    this.isSingleImagePicker = false,
+  });
 
-  ImagePickerState copyWith({File? file, List<File>? files, String? error}) {
+  ImagePickerState copyWith({
+    List<File>? files,
+    String? error,
+
+    bool? isSingleImagePicker,
+  }) {
     return ImagePickerState(
-      file: file,
       files: files ?? this.files,
       error: error ?? this.error,
+      isSingleImagePicker: isSingleImagePicker ?? this.isSingleImagePicker,
     );
   }
 
   @override
-  List<Object?> get props => [file, files, error];
+  List<Object?> get props => [files, error, isSingleImagePicker];
 }

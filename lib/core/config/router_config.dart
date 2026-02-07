@@ -6,6 +6,7 @@ import 'package:q_bank/common/widgets/error/error_screen.dart';
 import 'package:q_bank/modules/auth/auth.dart';
 import 'package:q_bank/modules/dashboard/dashboard.dart';
 import 'package:q_bank/modules/onboarding/onboarding.dart';
+import 'package:q_bank/modules/profile/profile.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
@@ -43,7 +44,18 @@ final router = GoRouter(
       builder: (context, state) => const DashboardScreen(),
     ),
 
-    //auth
+    //profile
+    GoRoute(
+      path: Routes.editProfile.path,
+      name: Routes.editProfile.name,
+      builder: (context, state) => const EditProfileScreen(),
+    ),
+
+    GoRoute(
+      path: Routes.deleteAccount.path,
+      name: Routes.deleteAccount.name,
+      builder: (context, state) => const DeleteAccountScreen(),
+    ),
   ],
   errorBuilder: (context, state) => ErrorScreen(
     error: state.error.toString(),

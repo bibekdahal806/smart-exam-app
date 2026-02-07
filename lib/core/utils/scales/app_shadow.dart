@@ -54,4 +54,10 @@ class AppShadow {
       color: Color.fromRGBO(0, 0, 0, 0.16),
     ),
   ];
+  static const shadowX0Y5B10SR0 = BoxShadow(
+    color: Color(0x1A000000), // #0000001A
+    offset: Offset(0, 5), // x=0, y=5
+    blurRadius: 10, // blur = 10
+    spreadRadius: 0, // spread = 0
+  );
 }

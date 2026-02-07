@@ -48,6 +48,15 @@ import 'package:q_bank/modules/onboarding/domain/use_case/get_or_set_initial_sho
 import 'package:q_bank/modules/onboarding/domain/use_case/set_show_onboarding_value_use_case.dart'
     as _i588;
 import 'package:q_bank/modules/onboarding/onboarding.dart' as _i702;
+import 'package:q_bank/modules/profile/features/delete_account/data/repository/delete_account_repository_impl.dart'
+    as _i777;
+import 'package:q_bank/modules/profile/features/delete_account/domain/use_case/delete_account_use_case.dart'
+    as _i878;
+import 'package:q_bank/modules/profile/features/edit_profile/data/repository/edit_profile_respository_impl.dart'
+    as _i952;
+import 'package:q_bank/modules/profile/features/edit_profile/domain/use_case/edit_user_data_usecase.dart'
+    as _i696;
+import 'package:q_bank/modules/profile/profile.dart' as _i370;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -71,9 +80,15 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i37.OnboardingRepositoryImpl(),
     );
     gh.factory<_i192.AuthRepository>(() => _i157.AuthRepositoryImpl());
+    gh.factory<_i370.DeleteAccountRepository>(
+      () => _i777.DeleteAccountRepositoryImpl(),
+    );
     gh.factory<_i588.SetShowOnboardingValueUseCase>(
       () =>
           _i588.SetShowOnboardingValueUseCase(gh<_i702.OnboardingRepository>()),
+    );
+    gh.factory<_i370.EditProfileRepository>(
+      () => _i952.EditProfileRepositoryImpl(),
     );
     gh.factory<_i999.GetCurrentAuthStateUseCase>(
       () => _i999.GetCurrentAuthStateUseCase(gh<_i192.AuthRepository>()),
@@ -94,7 +109,13 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i93.ConnectivityHelper>(
       () => _i93.ConnectivityHelper(gh<_i895.Connectivity>()),
     );
+    gh.factory<_i696.EditUserDataUsecase>(
+      () => _i696.EditUserDataUsecase(gh<_i370.EditProfileRepository>()),
+    );
     gh.factory<_i505.DioClient>(() => _i505.DioClient(gh<_i255.DioConfigs>()));
+    gh.factory<_i878.DeleteAccountUseCase>(
+      () => _i878.DeleteAccountUseCase(gh<_i370.DeleteAccountRepository>()),
+    );
     gh.factory<_i714.ImagePickerCubit>(
       () => _i714.ImagePickerCubit(gh<_i255.ImagePickerHelper>()),
     );
