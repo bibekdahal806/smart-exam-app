@@ -1,26 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:q_bank/core/core.dart';
+import 'package:q_bank/modules/exam/exam.dart';
 import 'package:q_bank/modules/home/home.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
   final CardSwiperController controller = CardSwiperController();
-  List<Container> cards = [
-    Container(
-      alignment: Alignment.center,
-      child: const Text('1'),
-      color: Colors.blue,
+  List<Widget> cards(BuildContext ctx) => [
+    GestureDetector(
+      onTap: () {
+        Navigator.of(
+          ctx,
+        ).push(MaterialPageRoute(builder: (context) => const ExamScreen()));
+      },
+      child: Container(
+        alignment: Alignment.center,
+        child: const Text('1'),
+        color: Colors.blue,
+      ),
     ),
-    Container(
-      alignment: Alignment.center,
-      child: const Text('2'),
-      color: Colors.red,
-    ),
-    Container(
-      alignment: Alignment.center,
-      child: const Text('3'),
-      color: Colors.purple,
+    GestureDetector(
+      onTap: () {
+        Navigator.of(
+          ctx,
+        ).push(MaterialPageRoute(builder: (context) => const ExamScreen()));
+      },
+      child: Container(
+        alignment: Alignment.center,
+        child: const Text('1'),
+        color: Colors.blue,
+      ),
     ),
   ];
   bool _onSwipe(
@@ -48,7 +58,7 @@ class HomeScreen extends StatelessWidget {
               toolbarHeight: 0,
               backgroundColor: context.theme.primaryColor,
               titleSpacing: 0,
-              title: const SizedBox(), // no visible title
+              title: const SizedBox(),
             ),
             PinnedHeaderSliver(
               child: Container(
@@ -67,11 +77,11 @@ class HomeScreen extends StatelessWidget {
               child: SizedBox(
                 height: context.deviceHeight * 0.5,
                 child: CardSwiper(
-                  cardsCount: cards.length,
+                  cardsCount: cards(context).length,
                   onSwipe: _onSwipe,
                   cardBuilder:
                       (context, index, percentThresholdX, percentThresholdY) =>
-                          cards[index],
+                          cards(context)[index],
                 ),
               ),
             ),
