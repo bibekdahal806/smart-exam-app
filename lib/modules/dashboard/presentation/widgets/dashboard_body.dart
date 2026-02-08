@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:q_bank/modules/bookmark/bookmark.dart';
 import 'package:q_bank/modules/dashboard/dashboard.dart';
+import 'package:q_bank/modules/exam/exam.dart';
 import 'package:q_bank/modules/home/home.dart';
 import 'package:q_bank/modules/profile/profile.dart';
 
@@ -19,7 +20,7 @@ class DashboardBodyWidget extends StatelessWidget {
       onPageChanged: (index) {
         BlocProvider.of<BottomNavigationCubit>(context).changePage(index);
       },
-      children: [HomeScreen(), Center(), BookmarkScreen(), ProfileScreen()],
+      children: [HomeScreen(), ExamScreen(), BookmarkScreen(), ProfileScreen()],
     );
   }
 }

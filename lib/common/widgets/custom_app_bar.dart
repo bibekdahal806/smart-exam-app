@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
 import 'package:q_bank/common/common.dart';
 import 'package:q_bank/core/core.dart';
-import 'package:go_router/go_router.dart';
 
 class CustomAppBarWidget extends StatelessWidget
     implements PreferredSizeWidget {
@@ -89,11 +89,11 @@ class CustomAppBarWidget extends StatelessWidget
                   },
               icon: SvgViewer.fromAsset(
                 colorFilter: ColorFilter.mode(
-                  showBackButtonColor ?? context.customTheme.onPrimary,
+                  showBackButtonColor ?? context.customTheme.icon,
                   BlendMode.srcIn,
                 ),
-                path: AssetRoutes.arrowBackIconPath,
-                size: AppSpacing.xlg.r,
+                path: AssetRoutes.arrowBackIosIconPath,
+                size: 20.r,
               ),
             )
           : leading,
