@@ -1,2 +1,2 @@
-export 'entity/entity.dart';
+export 'entities/entities.dart';
 export 'repository/repository.dart';

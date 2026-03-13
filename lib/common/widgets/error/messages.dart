@@ -15,6 +15,9 @@ class Messages {
   static const String getUserTokenFailed = 'Failed to get user token data';
   static const String editUserDataFailed = 'Failed to edit user data';
 
+  //exam
+  static const String getExamDataFailed = 'Failed to get exam data';
+
   //error
   static String noResultFound = "OOPS! NO RESULT FOUND.";
   static String noResultFoundDesc(String name) =>

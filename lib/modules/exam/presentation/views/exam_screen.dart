@@ -1,292 +1,113 @@
 // import 'package:flutter/material.dart';
 // import 'package:q_bank/common/common.dart';
 // import 'package:q_bank/core/core.dart';
+// import 'package:q_bank/modules/exam/exam.dart';
 
-// class ExamScreen extends StatelessWidget {
+// class ExamScreen extends StatefulWidget {
 //   const ExamScreen({super.key});
+
+//   @override
+//   State<ExamScreen> createState() => _ExamScreenState();
+// }
+
+// class _ExamScreenState extends State<ExamScreen> {
+//   final _formKey = GlobalKey<FormState>();
+
+//   List<QuestionResultEntity> _latestResults = const [];
+
+//   // Demo data (in real app, build this from backend using ExamMapper.fromJsonToEntity)
+//   late final ExamEntity _exam = ExamEntity(
+//     id: 'exam_1',
+//     createdAt: DateTime.now(),
+//     questions: const [
+//       QuestionEntity(
+//         id: 'q_name',
+//         text: 'What is your Name?',
+//         type: QuestionType.text,
+//       ),
+//       QuestionEntity(
+//         id: 'q_cond',
+//         text:
+//             'The property of a conductor due to which it allows current to pass easily is called:',
+//         type: QuestionType.single,
+//         options: [
+//           OptionEntity(id: 'conductivity', text: 'Conductivity'),
+//           OptionEntity(id: 'resistance', text: 'Resistance'),
+//           OptionEntity(id: 'insulation', text: 'Insulation'),
+//           OptionEntity(id: 'inductance', text: 'Inductance'),
+//         ],
+//       ),
+//       QuestionEntity(
+//         id: 'q_res_unit',
+//         text: 'Unit of electrical resistance is:',
+//         type: QuestionType.multi,
+//         options: [
+//           OptionEntity(id: 'ampere', text: 'Ampere'),
+//           OptionEntity(id: 'volt', text: 'Volt'),
+//           OptionEntity(id: 'ohm', text: 'Ohm'),
+//           OptionEntity(id: 'watt', text: 'Watt'),
+//         ],
+//       ),
+//     ],
+//   );
+
+//   void _submit() {
+//     final isValid = _formKey.currentState?.validate() ?? false;
+//     if (!isValid) return;
+
+//     // Convert to JSON for backend submission
+//     final payload = {
+//       'exam_id': _exam.id,
+//       'answers': QuestionResultMapper.toJsonListFromEntityList(_latestResults),
+//     };
+
+//     debugPrint('SUBMIT PAYLOAD => $payload');
+//   }
 
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
-//       appBar: CustomAppBarWidget(
-//         showBackButton: false,
-//         title: ParentTextWidget(
-//           "Exams",
-//           style: context.textTheme.bodyMedium?.copyWith(
-//             fontWeight: AppFontWeight.medium,
-//             color: context.customTheme.textPrimary,
-//           ),
-//         ),
-//         centerTitle: false,
-//       ),
-
-//       body: SafeArea(
-//         child: SingleChildScrollView(
-//           child: Column(
-//             children: [
-//               Padding(
-//                 padding: const EdgeInsets.all(16.0),
-//                 child: Card(
-//                   elevation: 0.5,
-//                   child: Container(
-//                     padding: .symmetric(horizontal: 8.w, vertical: 8.h),
-//                     child: Column(
-//                       mainAxisAlignment: MainAxisAlignment.start,
-//                       crossAxisAlignment: CrossAxisAlignment.start,
-//                       mainAxisSize: MainAxisSize.min,
-//                       children: [
-//                         Row(
-//                           mainAxisAlignment: .start,
-//                           crossAxisAlignment: .center,
-//                           children: [
-//                             Expanded(
-//                               child: ParentTextWidget(
-//                                 "Title of the exam Title of the examTitle of of the exam Title of the exam Title of the exam Title of the examTitle of ",
-//                                 showTooltip: true,
-//                                 style: context.textTheme.titleSmall?.copyWith(
-//                                   fontWeight: AppFontWeight.semiBold,
-//                                   overflow: .ellipsis,
-//                                 ),
-//                                 maxLines: 2,
-//                               ),
-//                             ),
-//                             12.horizontalSpace,
-//                             IconButton(
-//                               onPressed: () {},
-//                               icon: Icon(
-//                                 Icons.bookmark_rounded,
-//                                 color: context.colorScheme.primary,
-//                               ),
-//                             ),
-//                           ],
-//                         ),
-//                         4.verticalSpace,
-//                         Row(
-//                           mainAxisAlignment: .start,
-//                           crossAxisAlignment: .center,
-//                           children: [
-//                             CustomImageAvatar.network(
-//                               imageUrl: "imageUrl",
-//                               size: 30.r,
-//                               //
-//                             ),
-//                             12.horizontalSpace,
-//                             Expanded(
-//                               child: ParentTextWidget(
-//                                 "Near professor name",
-//                                 style: context.textTheme.bodyMedium?.copyWith(
-//                                   color: context.colorScheme.primary,
-//                                   fontWeight: AppFontWeight.semiBold,
-//                                   overflow: .ellipsis,
-//                                 ),
-//                                 maxLines: 1,
-//                               ),
-//                             ),
-//                             12.horizontalSpace,
-//                             ParentTextWidget(
-//                               "Published 112 days ago",
-//                               style: context.textTheme.labelSmall?.copyWith(
-//                                 color: context.customTheme.textSecondary,
-//                                 fontWeight: AppFontWeight.regular,
-//                                 overflow: .ellipsis,
-//                               ),
-//                               maxLines: 1,
-//                             ),
-//                           ],
-//                         ),
-//                         8.verticalSpace,
-//                         Wrap(
-//                           spacing: 8.r,
-//                           runSpacing: 0.r,
-//                           children: [
-//                             Chip(
-//                               label: ParentTextWidget(
-//                                 "NEA",
-//                                 style: context.textTheme.labelMedium
-//                                     ?.copyWith(),
-//                               ),
-//                               padding: .symmetric(
-//                                 horizontal: 8.w,
-//                                 vertical: 0.h,
-//                               ),
-//                               shape: RoundedRectangleBorder(
-//                                 borderRadius: AppBorderRadius.chipBorderRadius,
-//                               ),
-//                               visualDensity: .compact,
-//                               //
-//                             ),
-//                             Chip(
-//                               label: ParentTextWidget(
-//                                 "NEA",
-//                                 style: context.textTheme.labelMedium
-//                                     ?.copyWith(),
-//                               ),
-//                               padding: .symmetric(
-//                                 horizontal: 8.w,
-//                                 vertical: 0.h,
-//                               ),
-//                               shape: RoundedRectangleBorder(
-//                                 borderRadius: AppBorderRadius.chipBorderRadius,
-//                               ),
-//                               visualDensity: .compact,
-//                               //
-//                             ),
-//                             Chip(
-//                               label: ParentTextWidget(
-//                                 "NEA",
-//                                 style: context.textTheme.labelMedium
-//                                     ?.copyWith(),
-//                               ),
-//                               padding: .symmetric(
-//                                 horizontal: 8.w,
-//                                 vertical: 0.h,
-//                               ),
-//                               shape: RoundedRectangleBorder(
-//                                 borderRadius: AppBorderRadius.chipBorderRadius,
-//                               ),
-//                               visualDensity: .compact,
-//                               //
-//                             ),
-//                             Chip(
-//                               label: ParentTextWidget(
-//                                 "NEA",
-//                                 style: context.textTheme.labelMedium
-//                                     ?.copyWith(),
-//                               ),
-//                               padding: .symmetric(
-//                                 horizontal: 8.w,
-//                                 vertical: 0.h,
-//                               ),
-//                               shape: RoundedRectangleBorder(
-//                                 borderRadius: AppBorderRadius.chipBorderRadius,
-//                               ),
-//                               visualDensity: .compact,
-//                               //
-//                             ),
-//                             Chip(
-//                               label: ParentTextWidget(
-//                                 "NEA",
-//                                 style: context.textTheme.labelMedium
-//                                     ?.copyWith(),
-//                               ),
-//                               padding: .symmetric(
-//                                 horizontal: 8.w,
-//                                 vertical: 0.h,
-//                               ),
-//                               shape: RoundedRectangleBorder(
-//                                 borderRadius: AppBorderRadius.chipBorderRadius,
-//                               ),
-//                               visualDensity: .compact,
-//                               //
-//                             ),
-//                             Chip(
-//                               label: ParentTextWidget(
-//                                 "NEA",
-//                                 style: context.textTheme.labelMedium
-//                                     ?.copyWith(),
-//                               ),
-//                               padding: .symmetric(
-//                                 horizontal: 8.w,
-//                                 vertical: 0.h,
-//                               ),
-//                               shape: RoundedRectangleBorder(
-//                                 borderRadius: AppBorderRadius.chipBorderRadius,
-//                               ),
-//                               visualDensity: .compact,
-//                               //
-//                             ),
-//                           ],
-//                         ),
-//                         8.verticalSpace,
-//                         Row(
-//                           mainAxisAlignment: .spaceBetween,
-//                           crossAxisAlignment: .center,
-//                           children: [
-//                             Row(
-//                               mainAxisSize: .min,
-//                               children: [
-//                                 Icon(
-//                                   Icons.groups_rounded,
-//                                   color: context.colorScheme.primary,
-//                                   size: 24.r,
-//                                 ),
-//                                 4.horizontalSpace,
-//                                 Column(
-//                                   children: [
-//                                     ParentTextWidget(
-//                                       "435",
-//                                       style: context.textTheme.bodyMedium
-//                                           ?.copyWith(
-//                                             overflow: .ellipsis,
-//                                             fontWeight: AppFontWeight.semiBold,
-//                                           ),
-//                                       maxLines: 1,
-//                                     ),
-//                                     ParentTextWidget(
-//                                       "Appeared",
-//                                       style: context.textTheme.labelMedium
-//                                           ?.copyWith(
-//                                             overflow: .ellipsis,
-//                                             fontWeight: AppFontWeight.regular,
-//                                           ),
-//                                       maxLines: 1,
-//                                     ),
-//                                   ],
-//                                 ),
-//                               ],
-
-//                               //
-//                             ),
-//                             Row(
-//                               mainAxisSize: .min,
-//                               children: [
-//                                 Icon(
-//                                   Icons.star_rounded,
-//                                   color: context.colorScheme.primary,
-//                                   size: 24.r,
-//                                 ),
-//                                 4.horizontalSpace,
-//                                 Column(
-//                                   children: [
-//                                     ParentTextWidget(
-//                                       "4.5",
-//                                       style: context.textTheme.bodyMedium
-//                                           ?.copyWith(
-//                                             overflow: .ellipsis,
-//                                             fontWeight: AppFontWeight.semiBold,
-//                                           ),
-//                                       maxLines: 1,
-//                                     ),
-//                                     ParentTextWidget(
-//                                       "Rating",
-//                                       style: context.textTheme.labelMedium
-//                                           ?.copyWith(
-//                                             overflow: .ellipsis,
-//                                             fontWeight: AppFontWeight.regular,
-//                                           ),
-//                                       maxLines: 1,
-//                                     ),
-//                                   ],
-//                                 ),
-//                               ],
-
-//                               //
-//                             ),
-//                           ],
-//                         ),
-//                       ],
-//                     ),
+//       appBar: AppBar(
+//         automaticallyImplyLeading: false,
+//         title: Row(
+//           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//           mainAxisSize: MainAxisSize.max,
+//           children: [
+//             ParentTextWidget(
+//               '2/50',
+//               style: context.textTheme.bodyLarge?.copyWith(
+//                 fontWeight: AppFontWeight.medium,
+//                 color: context.customTheme.textPrimary,
+//               ),
+//             ),
+//             Expanded(
+//               child: Center(
+//                 child: ParentTextWidget(
+//                   '3:02:02',
+//                   style: context.textTheme.bodyLarge?.copyWith(
+//                     fontWeight: AppFontWeight.medium,
+//                     color: context.customTheme.textPrimary,
 //                   ),
 //                 ),
 //               ),
-//               //
-//               //
-//               //
-//             ],
-//           ),
+//             ),
+//             IconButton(onPressed: () {}, icon: const Icon(Icons.close_rounded)),
+//           ],
 //         ),
-
-//         //
+//       ),
+//       body: Form(
+//         key: _formKey,
+//         child: Survey(
+//           exam: _exam,
+//           onChange: (results) {
+//             _latestResults = results;
+//           },
+//         ),
+//       ),
+//       floatingActionButton: FloatingActionButton.extended(
+//         elevation: 1,
+//         onPressed: _submit,
+//         label: const Text('Submit'),
 //       ),
 //     );
 //   }
@@ -294,133 +115,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:q_bank/common/common.dart';
-import 'package:q_bank/core/core.dart';
-import 'package:q_bank/modules/exam/exam.dart';
 
-class ExamScreen extends StatefulWidget {
+class ExamScreen extends StatelessWidget {
   const ExamScreen({super.key});
-
-  @override
-  State<ExamScreen> createState() => _ExamScreenState();
-}
-
-class _ExamScreenState extends State<ExamScreen> {
-  final _formKey = GlobalKey<FormState>();
-  List<QuestionResult> _questionResults = [];
-  final List<Question> _initialData = [
-    Question(question: "What is your Name?"),
-    Question(
-      question:
-          "The property of a conductor due to which it allows current to pass easily is called:",
-      isMandatory: true,
-      answerChoices: {
-        "Conductivity": null,
-        "Resistance": null,
-        "Insulation": null,
-        "Inductance": null,
-      },
-    ),
-    Question(
-      question: "Unit of electrical resistance is:",
-      isMandatory: true,
-      singleChoice: false,
-      answerChoices: {"Ampere": null, "Volt": null, "Ohm": null, "Watt": null},
-    ),
-    Question(
-      question: "Kirchhoff’s Current Law (KCL) is applicable to:",
-      isMandatory: true,
-      answerChoices: {
-        "Closed loop in a network": null,
-        "Electronic circuits only": null,
-        "Junctions in a network": null,
-        "Electric circuit": null,
-      },
-    ),
-
-    // Question(
-    //   question: "Unit of electrical resistance is:",
-    //   isMandatory: true,
-
-    //   answerChoices: {"Ampere": null, "Volt": null, "Ohm": null, "Watt": null},
-    // ),
-  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Row(
-          mainAxisAlignment: .spaceBetween,
-          mainAxisSize: .max,
-          children: [
-            ParentTextWidget(
-              "2/50",
-              style: context.textTheme.bodyLarge?.copyWith(
-                fontWeight: AppFontWeight.medium,
-                color: context.customTheme.textPrimary,
-              ),
-              //
-            ),
-            Expanded(
-              child: Center(
-                child: ParentTextWidget(
-                  "3:02:02",
-                  style: context.textTheme.bodyLarge?.copyWith(
-                    fontWeight: AppFontWeight.medium,
-                    color: context.customTheme.textPrimary,
-                  ),
-                  //
-                ),
-              ),
-            ),
-            IconButton(
-              onPressed: () {
-                //
-              },
-              icon: Icon(Icons.close_rounded),
-            ),
-            // .horizontalSpace,
-          ],
-        ),
-      ),
-      body: Form(
-        key: _formKey,
-        child: Survey(
-          onNext: (questionResults) {
-            print(questionResults);
-            // _questionResults = questionResults;
-          },
-          initialData: _initialData,
-        ),
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        // shape: const CircleBorder(),
-        elevation: 1,
-        onPressed: () {},
-        label: Text("Go to"),
-      ),
-      // bottomNavigationBar: Column(
-      //   mainAxisSize: MainAxisSize.min,
-      //   children: [
-      //     SizedBox(
-      //       width: double.infinity,
-      //       height: 56,
-      //       child: TextButton(
-      //         style: TextButton.styleFrom(
-      //           foregroundColor: Colors.white,
-      //           backgroundColor: Colors.cyanAccent, // Background Color
-      //         ),
-      //         child: const Text("Validate"),
-      //         onPressed: () {
-      //           if (_formKey.currentState!.validate()) {
-      //             //do something
-      //           }
-      //         },
-      //       ),
-      //     ),
-      //   ],
-      // ),
+      body: Center(child: ParentTextWidget("Exam")),
     );
   }
 }
