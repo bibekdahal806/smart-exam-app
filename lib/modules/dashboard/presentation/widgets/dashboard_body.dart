@@ -20,7 +20,12 @@ class DashboardBodyWidget extends StatelessWidget {
       onPageChanged: (index) {
         BlocProvider.of<BottomNavigationCubit>(context).changePage(index);
       },
-      children: [HomeScreen(), ExamScreen(), BookmarkScreen(), ProfileScreen()],
+      children: [
+        HomeScreen(),
+        DashboardExamScreen(),
+        BookmarkedExamsScreen(),
+        ProfileScreen(),
+      ],
     );
   }
 }

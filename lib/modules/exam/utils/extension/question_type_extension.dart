@@ -4,33 +4,21 @@ extension QuestionTypeX on QuestionType {
   String get value {
     switch (this) {
       case QuestionType.text:
-        return "text";
+        return 'text';
       case QuestionType.single:
-        return "single";
+        return 'single';
       case QuestionType.multi:
-        return "multi";
-    }
-  }
-
-  String get displayValue {
-    switch (this) {
-      case QuestionType.text:
-        return "Text";
-      case QuestionType.single:
-        return "Single";
-      case QuestionType.multi:
-        return "Multi";
+        return 'multi';
     }
   }
 
   static QuestionType fromValue(String? value) {
-    switch ((value ?? "").toLowerCase()) {
-      case "text":
-        return QuestionType.text;
-      case "single":
+    switch ((value ?? '').toLowerCase()) {
+      case 'single':
         return QuestionType.single;
-      case "multi":
+      case 'multi':
         return QuestionType.multi;
+      case 'text':
       default:
         return QuestionType.text;
     }

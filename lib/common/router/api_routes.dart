@@ -11,4 +11,10 @@ class ApiRoutes {
 
   //api-auth-user
   static const String userEndPoint = '$apiEndPoint/user/';
+
+  //subjects
+  static const String subjectsEndPoint = '$apiEndPoint/subjects/';
+  //exams
+  static const String examsEndPoint = '$apiEndPoint/exams/';
+  static const String submitExamEndPoint = '$apiEndPoint/exam-submissions/';
 }

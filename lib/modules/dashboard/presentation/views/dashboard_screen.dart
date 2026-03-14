@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:q_bank/core/core.dart';
+import 'package:q_bank/modules/bookmark/bookmark.dart';
 import 'package:q_bank/modules/dashboard/dashboard.dart';
+import 'package:q_bank/modules/exam/exam.dart';
+import 'package:q_bank/modules/subjects/subjects.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -12,7 +15,12 @@ class DashboardScreen extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => BottomNavigationCubit()),
-
+        BlocProvider(create: (context) => LoadSubjectsCubit()..loadSubjects()),
+        BlocProvider<LoadExamsCubit>(
+          create: (_) =>
+              LoadExamsCubit()..loadExams(const ExamScreenArgument.all()),
+        ),
+        BlocProvider(create: (_) => BookmarkExamCubit()..loadBookmarkedExams()),
         //
       ],
 

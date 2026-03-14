@@ -1,28 +1,35 @@
 import 'package:equatable/equatable.dart';
-import 'package:q_bank/modules/exam/exam.dart';
+import 'question_entity.dart';
 
 class ExamEntity extends Equatable {
   final String? id;
-  final DateTime? createdAt;
-  final List<QuestionEntity> questions;
-
+  final String? createdAt;
+  final String? title;
+  final String? description;
   final bool hasTimer;
   final int? durationSeconds;
+  final List<QuestionEntity> questions;
 
   const ExamEntity({
     this.id,
     this.createdAt,
-    this.questions = const [],
+    this.title,
+    this.description,
     this.hasTimer = false,
     this.durationSeconds,
+    this.questions = const [],
   });
+
+  bool get isTimed => hasTimer && (durationSeconds ?? 0) > 0;
 
   @override
   List<Object?> get props => [
-    id,
-    createdAt,
-    questions,
-    hasTimer,
-    durationSeconds,
-  ];
+        id,
+        createdAt,
+        title,
+        description,
+        hasTimer,
+        durationSeconds,
+        questions,
+      ];
 }

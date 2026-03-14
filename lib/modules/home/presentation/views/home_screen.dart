@@ -46,7 +46,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 8.verticalSpace,
-                SubjectsListView(),
+                SubjectListView(),
               ],
             ),
           ),

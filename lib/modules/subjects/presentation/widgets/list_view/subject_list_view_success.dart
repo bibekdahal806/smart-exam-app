@@ -11,10 +11,11 @@ class SubjectListViewSuccess extends StatelessWidget {
     return ListView.separated(
       itemCount: loadSubjectsState.subjects.length,
       shrinkWrap: true,
+      padding: .zero,
       physics: NeverScrollableScrollPhysics(),
-      separatorBuilder: (context, index) => 16.verticalSpace,
+      separatorBuilder: (context, index) => 12.verticalSpace,
       itemBuilder: (context, index) {
-        return Center();
+        return SubjectTile(subject: loadSubjectsState.subjects[index]);
       },
     );
   }

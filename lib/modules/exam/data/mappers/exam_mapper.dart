@@ -4,35 +4,41 @@ import 'package:q_bank/modules/exam/exam.dart';
 
 class ExamMapper {
   static ExamEntity toEntity(ExamModel model) {
+    final duration = model.durationSeconds;
+    final hasTimer = model.hasTimer ?? ((duration ?? 0) > 0);
     return ExamEntity(
       id: model.id,
-      createdAt: model.createdAt == null
-          ? null
-          : DateTime.tryParse(model.createdAt!),
+      createdAt: model.createdAt,
+      title: model.title,
+      description: model.description,
+      hasTimer: hasTimer,
+      durationSeconds: hasTimer ? duration : null,
       questions: (model.questions ?? const [])
-          .map((q) => QuestionMapper.toEntity(q))
+          .map(QuestionMapper.toEntity)
           .toList(),
     );
   }
 
-  static ExamModel toModel(ExamEntity entity) {
-    return ExamModel(
-      id: entity.id,
-      createdAt: entity.createdAt?.toIso8601String(),
-      questions: entity.questions
-          .map((q) => QuestionMapper.toModel(q))
-          .toList(),
-    );
-  }
+  static ExamModel toModel(ExamEntity entity) => ExamModel(
+    id: entity.id,
+    createdAt: entity.createdAt,
+    title: entity.title,
+    description: entity.description,
+    hasTimer: entity.hasTimer,
+    durationSeconds: entity.durationSeconds,
+    questions: entity.questions.map(QuestionMapper.toModel).toList(),
+  );
 
+  /// JSON → Entity
   static ExamEntity fromJsonToEntity(Map<String, dynamic> json) {
     return toEntity(ExamModel.fromJson(json));
   }
 
-  static ExamEntity fromRawJsonToEntity(String rawJson) {
-    return toEntity(ExamModel.fromJson(jsonDecode(rawJson)));
+  static ExamEntity fromRawJsonToEntity(String raw) {
+    return toEntity(ExamModel.fromRawJson(raw));
   }
 
+  /// Entity → JSON
   static Map<String, dynamic> toJsonFromEntity(ExamEntity entity) {
     return toModel(entity).toJson();
   }

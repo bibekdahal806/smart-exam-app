@@ -1,3 +1,3 @@
 export 'mappers/mappers.dart';
 export 'models/models.dart';
-export 'repository/repository.dart';
+export 'repositories/repositories.dart';

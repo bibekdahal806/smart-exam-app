@@ -1,7 +1,5 @@
 import 'package:equatable/equatable.dart';
 
-/// text -> answers = ["typed value"]
-/// single/multi -> answers = ["optionId1", "optionId2", ...]
 class QuestionResultEntity extends Equatable {
   final String questionId;
   final List<String> answers;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:q_bank/core/core.dart';
+import 'package:q_bank/modules/subjects/subjects.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class SubjectListViewLoading extends StatelessWidget {
@@ -14,8 +15,7 @@ class SubjectListViewLoading extends StatelessWidget {
         physics: NeverScrollableScrollPhysics(),
         separatorBuilder: (context, index) => 16.verticalSpace,
         itemBuilder: (context, index) {
-          return Center();
-          // return AdventureTile(adventure: adventureDummyData);
+          return SubjectTile(subject: subjectDummyData.first);
         },
       ),
     );
