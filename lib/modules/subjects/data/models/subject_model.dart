@@ -22,7 +22,9 @@ class SubjectModel {
   factory SubjectModel.fromJson(Map<String, dynamic> json) => SubjectModel(
     id: json["id"],
     name: json["name"],
-    examCount: json["exam_count"],
+    examCount: json["exam_count"] == null
+        ? null
+        : int.tryParse(json["exam_count"].toString()),
   );
 
   Map<String, dynamic> toJson() => {

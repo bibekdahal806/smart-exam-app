@@ -11,31 +11,31 @@ class RemoteExamRepositoryImpl implements RemoteExamRepository {
 
   @override
   Future<List<ExamEntity>> getExams() async {
-    // final response = await _remoteService.getResponse(
-    //   endPoint: ApiRoutes.examsEndPoint,
-    //   isTokenRequired: true,
-    // );
+    final response = await _remoteService.getResponse(
+      endPoint: ApiRoutes.examsEndPoint,
+      isTokenRequired: true,
+    );
 
-    // final data = response?['data'];
+    final data = response?['data'];
 
-    // if (data == null) {
-    //   return [];
-    // }
+    if (data == null) {
+      return [];
+    }
 
-    // final examsJson = data is List
-    //     ? data
-    //     : data['exams'] is List
-    //     ? data['exams'] as List
-    //     : <dynamic>[];
+    final examsJson = data is List
+        ? data
+        : data['exams'] is List
+        ? data['exams'] as List
+        : <dynamic>[];
 
-    // return examsJson
-    //     .map(
-    //       (e) => ExamMapper.toEntity(
-    //         ExamModel.fromJson(Map<String, dynamic>.from(e)),
-    //       ),
-    //     )
-    //     .toList();
-    return examDummyData;
+    return examsJson
+        .map(
+          (e) => ExamMapper.toEntity(
+            ExamModel.fromJson(Map<String, dynamic>.from(e)),
+          ),
+        )
+        .toList();
+    // return examDummyData;
   }
 
   @override
