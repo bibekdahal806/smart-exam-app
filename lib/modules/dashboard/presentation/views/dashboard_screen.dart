@@ -5,6 +5,7 @@ import 'package:q_bank/core/core.dart';
 import 'package:q_bank/modules/bookmark/bookmark.dart';
 import 'package:q_bank/modules/dashboard/dashboard.dart';
 import 'package:q_bank/modules/exam/exam.dart';
+import 'package:q_bank/modules/home/home.dart';
 import 'package:q_bank/modules/subjects/subjects.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -21,6 +22,7 @@ class DashboardScreen extends StatelessWidget {
               LoadExamsCubit()..loadExams(const ExamScreenArgument.all()),
         ),
         BlocProvider(create: (_) => BookmarkExamCubit()..loadBookmarkedExams()),
+        BlocProvider(create: (_) => DashboardCubit()..getDashboard()),
         //
       ],
 

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:q_bank/common/common.dart';
 import 'package:q_bank/core/core.dart';
 import 'package:q_bank/modules/home/home.dart';
-import 'package:q_bank/modules/subjects/subjects.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -22,7 +21,10 @@ class HomeScreen extends StatelessWidget {
             ),
             PinnedHeaderSliver(
               child: Container(
-                decoration: BoxDecoration(color: context.theme.primaryColor),
+                decoration: BoxDecoration(
+                  color: context.theme.primaryColor,
+                  borderRadius: .only(bottomLeft: Radius.circular(40.r)),
+                ),
                 child: HomeGreetingCardView(),
               ),
             ),
@@ -37,16 +39,17 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: .start,
               crossAxisAlignment: .start,
               children: [
-                16.verticalSpace,
-                ParentTextWidget(
-                  "Subjects",
-                  style: context.textTheme.headlineSmall?.copyWith(
-                    fontWeight: AppFontWeight.bold,
-                    color: context.customTheme.textPrimary,
-                  ),
-                ),
-                8.verticalSpace,
-                SubjectListView(),
+                DashboardHomeSection(),
+                // 16.verticalSpace,
+                // ParentTextWidget(
+                //   "Subjects",
+                //   style: context.textTheme.headlineSmall?.copyWith(
+                //     fontWeight: AppFontWeight.bold,
+                //     color: context.customTheme.textPrimary,
+                //   ),
+                // ),
+                // 8.verticalSpace,
+                // SubjectListView(),
               ],
             ),
           ),
