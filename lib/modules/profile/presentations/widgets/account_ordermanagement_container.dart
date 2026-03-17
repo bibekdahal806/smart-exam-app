@@ -23,6 +23,12 @@ class AccountOrdermanagementContainer extends StatelessWidget {
                       context.pushNamed(Routes.pendingExams.name);
                     },
                   ),
+                  ProfileTile(
+                    title: "Exam Reports",
+                    onTap: () {
+                      context.pushNamed(Routes.examReports.name);
+                    },
+                  ),
                 ],
               ),
             ],
