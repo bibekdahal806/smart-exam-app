@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:q_bank/common/common.dart';
 import 'package:q_bank/core/core.dart';
-import 'package:q_bank/modules/app_setting/app_setting.dart';
 import 'package:q_bank/modules/auth/auth.dart';
 import 'package:q_bank/modules/onboarding/onboarding.dart';
 
@@ -29,17 +28,22 @@ class SplashScreenView extends StatelessWidget {
       listener: (context, state) async {
         if (state.splashStatus.isSuccess) {
           if (context.mounted) {
-            var appSettingCubitState = context.read<AppSettingCubit>().state;
+            // var appSettingCubitState = context.read<AppSettingCubit>().state;
             var authState = context.read<AuthBloc>().state;
-            if (appSettingCubitState.showOnboarding) {
-              context.goNamed(Routes.onboarding.name);
+            if (authState is AuthUserUnauthenticated) {
+              context.goNamed(Routes.login.name);
             } else {
-              if (authState is AuthUserUnauthenticated) {
-                context.goNamed(Routes.login.name);
-              } else {
-                context.goNamed(Routes.dashboard.name);
-              }
+              context.goNamed(Routes.dashboard.name);
             }
+            // if (appSettingCubitState.showOnboarding) {
+            //   context.goNamed(Routes.onboarding.name);
+            // } else {
+            //   if (authState is AuthUserUnauthenticated) {
+            //     context.goNamed(Routes.login.name);
+            //   } else {
+            //     context.goNamed(Routes.dashboard.name);
+            //   }
+            // }
           }
         }
       },

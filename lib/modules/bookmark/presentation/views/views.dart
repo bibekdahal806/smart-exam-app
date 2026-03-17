@@ -1,1 +1,1 @@
-export 'bookmark_screen.dart';
+export 'bookmarked_exams_screen.dart';

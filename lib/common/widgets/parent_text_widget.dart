@@ -5,6 +5,7 @@ class ParentTextWidget extends StatelessWidget {
   const ParentTextWidget(
     this.text, {
     super.key,
+    this.showTooltip = false,
     this.style,
     this.textAlign,
     this.textDirection,
@@ -23,6 +24,7 @@ class ParentTextWidget extends StatelessWidget {
   });
 
   final String text;
+  final bool showTooltip;
   final TextStyle? style;
   final TextAlign? textAlign;
   final TextDirection? textDirection;
@@ -41,7 +43,7 @@ class ParentTextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    var textWidget = Text(
       text,
       style: shouldScale
           ? style?.scaleTextStyleForLocale
@@ -60,5 +62,6 @@ class ParentTextWidget extends StatelessWidget {
       textWidthBasis: textWidthBasis,
       textHeightBehavior: textHeightBehavior,
     );
+    return showTooltip ? Tooltip(message: text, child: textWidget) : textWidget;
   }
 }

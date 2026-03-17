@@ -35,7 +35,8 @@ class DioExceptionUtil {
       case 401:
         return 'Authentication failed';
       case 403:
-        return 'Access denied';
+        // return 'Access denied';
+        return parseErrorMapToString(data);
       case 404:
         return 'Resource not found';
       case 429:

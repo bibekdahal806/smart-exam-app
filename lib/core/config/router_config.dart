@@ -5,6 +5,7 @@ import 'package:q_bank/common/router/routes.dart';
 import 'package:q_bank/common/widgets/error/error_screen.dart';
 import 'package:q_bank/modules/auth/auth.dart';
 import 'package:q_bank/modules/dashboard/dashboard.dart';
+import 'package:q_bank/modules/exam/exam.dart';
 import 'package:q_bank/modules/onboarding/onboarding.dart';
 import 'package:q_bank/modules/profile/profile.dart';
 
@@ -55,6 +56,40 @@ final router = GoRouter(
       path: Routes.deleteAccount.path,
       name: Routes.deleteAccount.name,
       builder: (context, state) => const DeleteAccountScreen(),
+    ),
+    GoRoute(
+      name: Routes.exam.name,
+      path: Routes.exam.path,
+
+      builder: (context, state) {
+        if (state.extra == null || state.extra is! ExamScreenArgument) {
+          return ErrorScreen(
+            error: "Exam detail is needed here.",
+            location: state.fullPath ?? state.matchedLocation,
+          );
+        }
+        final args = state.extra as ExamScreenArgument;
+        return ExamScreen(argument: args);
+      },
+    ),
+    GoRoute(
+      name: Routes.examDetail.name,
+      path: Routes.examDetail.path,
+      builder: (context, state) {
+        if (state.extra == null || state.extra is! ExamDetailArgument) {
+          return ErrorScreen(
+            error: "Exam detail is needed here.",
+            location: state.fullPath ?? state.matchedLocation,
+          );
+        }
+        final args = state.extra as ExamDetailArgument;
+        return ExamDetailScreen(argument: args);
+      },
+    ),
+    GoRoute(
+      path: Routes.pendingExams.path,
+      name: Routes.pendingExams.name,
+      builder: (context, state) => const PendingExamsScreen(),
     ),
   ],
   errorBuilder: (context, state) => ErrorScreen(

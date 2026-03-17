@@ -6,13 +6,21 @@ enum Routes {
   //auth
   login(name: "login", path: "/login"),
   signup(name: "signUp", path: "/sign-up"),
+
   //dashboard
   dashboard(name: "dashboard", path: "/dashboard"),
   profile(name: "profile", path: "/profile"),
   editProfile(name: "editProfile", path: "/edit-profile"),
   setting(name: "setting", path: "/setting"),
   deleteAccount(name: "deleteAccount", path: "/delete-account"),
-  about(name: "about", path: "/about")
+  about(name: "about", path: "/about"),
+
+  //exam
+  exam(name: "exam", path: "/exam"),
+  examDetail(name: "exam-detail", path: "/exam-detail"),
+  pendingExams(name: "pending-exams", path: "/pending-exams")
+  //
+  //
   //
   ;
 

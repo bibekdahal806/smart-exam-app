@@ -41,6 +41,14 @@ import 'package:q_bank/modules/auth/domain/use_case/logout_use_case.dart'
     as _i311;
 import 'package:q_bank/modules/auth/domain/use_case/register_user_use_case.dart'
     as _i396;
+import 'package:q_bank/modules/bookmark/bookmark.dart' as _i327;
+import 'package:q_bank/modules/bookmark/data/repository/local/local_bookmarked_exam_repository_impl.dart'
+    as _i406;
+import 'package:q_bank/modules/exam/data/repositories/local/local_exam_session_repository_impl.dart'
+    as _i700;
+import 'package:q_bank/modules/exam/data/repositories/remote/remote_exam_repository_impl.dart'
+    as _i893;
+import 'package:q_bank/modules/exam/exam.dart' as _i840;
 import 'package:q_bank/modules/onboarding/data/repository/onboarding_repository_impl.dart'
     as _i37;
 import 'package:q_bank/modules/onboarding/domain/use_case/get_or_set_initial_show_onboarding_value_use_case.dart'
@@ -57,6 +65,9 @@ import 'package:q_bank/modules/profile/features/edit_profile/data/repository/edi
 import 'package:q_bank/modules/profile/features/edit_profile/domain/use_case/edit_user_data_usecase.dart'
     as _i696;
 import 'package:q_bank/modules/profile/profile.dart' as _i370;
+import 'package:q_bank/modules/subjects/data/repository/remote/remote_subject_repository_impl.dart'
+    as _i142;
+import 'package:q_bank/modules/subjects/subjects.dart' as _i825;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -90,6 +101,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i370.EditProfileRepository>(
       () => _i952.EditProfileRepositoryImpl(),
     );
+    gh.factory<_i825.RemoteSubjectRepository>(
+      () => _i142.RemoteSubjectRepositoryImpl(),
+    );
     gh.factory<_i999.GetCurrentAuthStateUseCase>(
       () => _i999.GetCurrentAuthStateUseCase(gh<_i192.AuthRepository>()),
     );
@@ -106,6 +120,15 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i396.RegisterUserUseCase(gh<_i192.AuthRepository>()),
     );
     gh.factory<_i255.RemoteService>(() => _i203.RemoteServiceImpl());
+    gh.factory<_i327.LocalBookmarkedExamRepository>(
+      () => _i406.LocalBookmarkedExamRepositoryImpl(),
+    );
+    gh.factory<_i840.RemoteExamRepository>(
+      () => _i893.RemoteExamRepositoryImpl(),
+    );
+    gh.factory<_i840.LocalExamSessionRepository>(
+      () => _i700.LocalExamSessionRepositoryImpl(),
+    );
     gh.singleton<_i93.ConnectivityHelper>(
       () => _i93.ConnectivityHelper(gh<_i895.Connectivity>()),
     );
