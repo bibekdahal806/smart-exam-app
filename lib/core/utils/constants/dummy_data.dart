@@ -16,7 +16,7 @@ var examDummyData = ExamMapper.fromJsonListToEntityList([
     "title": "Mathematics Fundamentals Test",
     "description": "Covers arithmetic, algebra, and basic geometry.",
     "has_timer": true,
-    "duration_seconds": 1800,
+    "duration_seconds": 9,
     "questions": [
       {
         "id": "math_1_q1",

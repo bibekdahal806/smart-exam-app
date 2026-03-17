@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:q_bank/common/common.dart';
 import 'package:q_bank/core/core.dart';
 import 'package:q_bank/modules/exam/exam.dart';
 
@@ -88,7 +89,10 @@ class ExamSessionCubit extends Cubit<ExamSessionState> {
       _startTicker();
     } catch (e) {
       emit(
-        state.copyWith(status: ExamSessionStatus.failure, error: e.toString()),
+        state.copyWith(
+          status: ExamSessionStatus.failure,
+          error: AppErrorHandler.getErrorMessage(e),
+        ),
       );
     }
   }
@@ -218,7 +222,10 @@ class ExamSessionCubit extends Cubit<ExamSessionState> {
       );
     } catch (e) {
       emit(
-        state.copyWith(status: ExamSessionStatus.failure, error: e.toString()),
+        state.copyWith(
+          status: ExamSessionStatus.failure,
+          error: AppErrorHandler.getErrorMessage(e),
+        ),
       );
     }
   }

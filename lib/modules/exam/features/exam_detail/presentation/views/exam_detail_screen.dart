@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:q_bank/common/common.dart';
+import 'package:q_bank/core/core.dart';
 import 'package:q_bank/modules/exam/exam.dart';
 
 class ExamDetailScreen extends StatelessWidget {
@@ -97,6 +100,33 @@ class _ExamDetailScreenViewState extends State<ExamDetailScreenView>
     }
   }
 
+  Future<void> _onPop(BuildContext context) async {
+    final ok =
+        await showDialog<bool>(
+          context: context,
+          builder: (_) => AlertDialog(
+            title: const Text('Do you want to exit?'),
+            content: const Text(
+              'Your progress will be saved and you can resume later from pending exams screen present in the setting. But after the timeout, this attempt will be finished.',
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context, false),
+                child: const Text('Cancel'),
+              ),
+              ElevatedButton(
+                onPressed: () => Navigator.pop(context, true),
+                child: const Text('Exit'),
+              ),
+            ],
+          ),
+        ) ??
+        false;
+    if (ok && context.mounted) {
+      context.pop();
+    }
+  }
+
   Future<void> _openJumpSheet(
     BuildContext context,
     ExamSessionState state,
@@ -144,28 +174,38 @@ class _ExamDetailScreenViewState extends State<ExamDetailScreenView>
         }
 
         if (state.status == ExamSessionStatus.submitted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Exam submitted successfully.')),
+          // ScaffoldMessenger.of(context).showSnackBar(
+          //   const SnackBar(content: Text('Exam submitted successfully.')),
+          // );
+          CustomSnackbar.showToastMessage(
+            type: .success,
+            message: "Exam submitted successfully.",
           );
+
           Navigator.of(context).maybePop(true);
         }
 
         if (state.status == ExamSessionStatus.expired && state.autoSubmitted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Time is over. The exam was auto-submitted.'),
-            ),
+          CustomSnackbar.showToastMessage(
+            type: .success,
+            message: "Time is over. The exam was auto-submitted.",
           );
           Navigator.of(context).maybePop(true);
         }
 
         if (state.status == ExamSessionStatus.failure && state.error != null) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text(state.error!)));
+          CustomSnackbar.showToastMessage(
+            type: .error,
+            message: state.error ?? Messages.somethingWentWrong,
+          );
         }
       },
       builder: (context, state) {
+        if (state.status == ExamSessionStatus.submitting) {
+          context.showPopupLoading();
+        } else {
+          context.hidePopupLoading();
+        }
         if (state.status == ExamSessionStatus.loading ||
             state.status == ExamSessionStatus.initial) {
           return const Scaffold(
@@ -184,57 +224,66 @@ class _ExamDetailScreenViewState extends State<ExamDetailScreenView>
           _syncPageWithState(state.currentIndex, animated: false);
         }
 
-        return Scaffold(
-          appBar: AppBar(
-            title: Text(state.exam.title ?? 'Exam'),
-            actions: [
-              Padding(
-                padding: const EdgeInsets.only(right: 16),
-                child: Center(
-                  child: ExamTimerText(
-                    remainingSeconds: state.remainingSeconds,
+        return PopScope(
+          canPop: false,
+          onPopInvokedWithResult: (didPop, result) async {
+            if (didPop) {
+              return;
+            }
+            await _onPop(context);
+          },
+          child: Scaffold(
+            appBar: AppBar(
+              title: Text(state.exam.title ?? 'Exam'),
+              actions: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 16),
+                  child: Center(
+                    child: ExamTimerText(
+                      remainingSeconds: state.remainingSeconds,
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          body: PageView.builder(
-            controller: _pageController,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: state.totalQuestions,
-            itemBuilder: (context, index) {
-              final question = state.exam.questions[index];
-              final value =
-                  state.answersByQuestionId[(question.id ?? '').trim()] ??
-                  const <String>[];
+              ],
+            ),
+            body: PageView.builder(
+              controller: _pageController,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: state.totalQuestions,
+              itemBuilder: (context, index) {
+                final question = state.exam.questions[index];
+                final value =
+                    state.answersByQuestionId[(question.id ?? '').trim()] ??
+                    const <String>[];
 
-              return QuestionCard(
-                index: index,
-                total: state.totalQuestions,
-                question: question,
-                value: value,
-                onChanged: (answers) {
-                  final id = (question.id ?? '').trim();
-                  if (id.isNotEmpty) {
-                    context.read<ExamSessionCubit>().updateAnswer(
-                      questionId: id,
-                      answers: answers,
-                    );
-                  }
-                },
-              );
-            },
-          ),
-          bottomNavigationBar: ExamBottomBar(
-            hasPrevious: state.hasPrevious,
-            hasNext: state.hasNext,
-            currentIndex: state.currentIndex,
-            totalQuestions: state.totalQuestions,
-            onPrevious: () =>
-                context.read<ExamSessionCubit>().previousQuestion(),
-            onNext: () => context.read<ExamSessionCubit>().nextQuestion(),
-            onJump: () => _openJumpSheet(context, state),
-            onSubmit: () => _confirmSubmit(context),
+                return QuestionCard(
+                  index: index,
+                  total: state.totalQuestions,
+                  question: question,
+                  value: value,
+                  onChanged: (answers) {
+                    final id = (question.id ?? '').trim();
+                    if (id.isNotEmpty) {
+                      context.read<ExamSessionCubit>().updateAnswer(
+                        questionId: id,
+                        answers: answers,
+                      );
+                    }
+                  },
+                );
+              },
+            ),
+            bottomNavigationBar: ExamBottomBar(
+              hasPrevious: state.hasPrevious,
+              hasNext: state.hasNext,
+              currentIndex: state.currentIndex,
+              totalQuestions: state.totalQuestions,
+              onPrevious: () =>
+                  context.read<ExamSessionCubit>().previousQuestion(),
+              onNext: () => context.read<ExamSessionCubit>().nextQuestion(),
+              onJump: () => _openJumpSheet(context, state),
+              onSubmit: () => _confirmSubmit(context),
+            ),
           ),
         );
       },

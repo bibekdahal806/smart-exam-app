@@ -16,5 +16,5 @@ class ApiRoutes {
   static const String subjectsEndPoint = '$apiEndPoint/subjects/';
   //exams
   static const String examsEndPoint = '$apiEndPoint/exams/';
-  static const String submitExamEndPoint = '$apiEndPoint/exam-submissions/';
+  static const String submitExamEndPoint = '$apiEndPoint/exam-submissions';
 }
