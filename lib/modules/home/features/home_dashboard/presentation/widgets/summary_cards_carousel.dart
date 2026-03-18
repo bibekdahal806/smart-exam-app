@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:q_bank/core/core.dart';
 import 'package:q_bank/modules/home/home.dart';
 
 class SummaryCardsCarousel extends StatefulWidget {
-  final DashboardSummaryEntity summary;
+  final SummaryEntity? summary;
 
   const SummaryCardsCarousel({super.key, required this.summary});
 
@@ -11,25 +12,28 @@ class SummaryCardsCarousel extends StatefulWidget {
 }
 
 class _SummaryCardsCarouselState extends State<SummaryCardsCarousel> {
-  final PageController _pageController = PageController(viewportFraction: 0.46);
-  int _currentIndex = 0;
+  final PageController _pageController = PageController(
+    viewportFraction: 0.46,
+    initialPage: 1,
+  );
+  int _currentIndex = 1;
 
   late final List<_SummaryCardData> _items = [
     _SummaryCardData(
       title: 'Overall Score',
-      value: widget.summary.overallScore.toString(),
+      value: widget.summary?.overallScore.toString() ?? "0",
     ),
     _SummaryCardData(
       title: 'Attempted Exams',
-      value: widget.summary.attemptedExams.toString(),
+      value: widget.summary?.attemptedExams.toString() ?? "0",
     ),
     _SummaryCardData(
       title: 'Passed Exams',
-      value: widget.summary.passedExams.toString(),
+      value: widget.summary?.passedExams.toString() ?? "0",
     ),
     _SummaryCardData(
       title: 'Failed Exams',
-      value: widget.summary.failedExams.toString(),
+      value: widget.summary?.failedExams.toString() ?? "0",
     ),
   ];
 
@@ -44,14 +48,15 @@ class _SummaryCardsCarouselState extends State<SummaryCardsCarousel> {
     return Column(
       children: [
         SizedBox(
-          height: 118,
+          height: 150.h,
           child: PageView.builder(
             controller: _pageController,
             itemCount: _items.length,
             onPageChanged: (index) => setState(() => _currentIndex = index),
             itemBuilder: (context, index) {
               final item = _items[index];
-              return Padding(
+              return Container(
+                margin: .symmetric(vertical: 10),
                 padding: EdgeInsets.only(
                   left: index == 0 ? 16 : 6,
                   right: index == _items.length - 1 ? 16 : 6,
@@ -92,50 +97,53 @@ class _SummaryMetricCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(18),
-        boxShadow: const [
-          BoxShadow(
-            color: Color(0x11000000),
-            blurRadius: 14,
-            offset: Offset(0, 6),
-          ),
-        ],
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            width: 50,
-            height: 50,
-            decoration: const BoxDecoration(
-              color: Color(0xFF2F80ED),
-              shape: BoxShape.circle,
+    return Card(
+      color: Colors.white,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(18),
+          boxShadow: const [
+            BoxShadow(
+              color: Color(0x11000000),
+              blurRadius: 14,
+              offset: Offset(0, 6),
             ),
-            alignment: Alignment.center,
-            child: Text(
-              item.value,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.w700,
+          ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 50,
+              height: 50,
+              decoration: const BoxDecoration(
+                color: Color(0xFF2F80ED),
+                shape: BoxShape.circle,
+              ),
+              alignment: Alignment.center,
+              child: Text(
+                item.value,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
             ),
-          ),
-          const SizedBox(height: 10),
-          Text(
-            item.title,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w600,
-              color: Color(0xFF2A2A2A),
+            const SizedBox(height: 10),
+            Text(
+              item.title,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+                color: Color(0xFF2A2A2A),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -30,7 +30,6 @@ class HomeScreen extends StatelessWidget {
             ),
           ];
         },
-        physics: NeverScrollableScrollPhysics(),
         body: SingleChildScrollView(
           child: ParentPaddingWidget(
             top: 0,

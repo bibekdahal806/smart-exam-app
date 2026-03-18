@@ -106,7 +106,7 @@ class ExamReportDetailQuestionCard extends StatelessWidget {
           ),
           8.verticalSpace,
           ParentTextWidget(
-            item.type.value.capitalize(),
+            item.type.name.capitalize(),
             style: context.textTheme.bodySmall?.copyWith(
               color: context.customTheme.textSecondary,
             ),

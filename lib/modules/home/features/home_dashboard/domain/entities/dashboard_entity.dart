@@ -1,61 +1,66 @@
 class DashboardEntity {
-  final DashboardSummaryEntity summary;
-  final PerformanceOvertimeEntity performanceOvertime;
-  final List<SubjectwiseStrengthEntity> subjectwiseStrength;
+  final SummaryEntity? summary;
+  final PerformanceOvertimeEntity? performanceOvertime;
+  final List<SubjectwiseStrengthEntity>? subjectwiseStrength;
 
   const DashboardEntity({
-    required this.summary,
-    required this.performanceOvertime,
-    required this.subjectwiseStrength,
+    this.summary,
+    this.performanceOvertime,
+    this.subjectwiseStrength,
   });
 }
 
-class DashboardSummaryEntity {
-  final int overallScore;
-  final int attemptedExams;
-  final int passedExams;
-  final int failedExams;
+/* ---------------- SUMMARY ---------------- */
 
-  const DashboardSummaryEntity({
-    required this.overallScore,
-    required this.attemptedExams,
-    required this.passedExams,
-    required this.failedExams,
+class SummaryEntity {
+  final int? overallScore;
+  final int? attemptedExams;
+  final int? passedExams;
+  final int? failedExams;
+
+  const SummaryEntity({
+    this.overallScore,
+    this.attemptedExams,
+    this.passedExams,
+    this.failedExams,
   });
 }
+
+/* ------------ PERFORMANCE OVERTIME ------------ */
 
 class PerformanceOvertimeEntity {
-  final String range;
-  final List<ChartPointEntity> chartPoints;
+  final String? range;
+  final List<ChartPointEntity>? chartPoints;
 
-  const PerformanceOvertimeEntity({
-    required this.range,
-    required this.chartPoints,
-  });
+  const PerformanceOvertimeEntity({this.range, this.chartPoints});
 }
+
+/* ---------------- CHART POINT ---------------- */
 
 class ChartPointEntity {
-  final String label;
-  final double studentScore;
-  final double averageStudentScore;
+  final String? label;
+  final int? studentScore;
+  final int? averageStudentScore;
 
   const ChartPointEntity({
-    required this.label,
-    required this.studentScore,
-    required this.averageStudentScore,
+    this.label,
+    this.studentScore,
+    this.averageStudentScore,
   });
 }
 
+/* ----------- SUBJECTWISE STRENGTH ------------ */
+
 class SubjectwiseStrengthEntity {
-  final int subjectId;
-  final String subjectName;
-  final int examAttempted;
-  final double averageScore;
+  final int? subjectId;
+  final String? subjectName;
+  final int? examAttempted;
+  final int? averageScore;
 
   const SubjectwiseStrengthEntity({
-    required this.subjectId,
-    required this.subjectName,
-    required this.examAttempted,
-    required this.averageScore,
+    this.subjectId,
+    this.subjectName,
+    this.examAttempted,
+    this.averageScore,
   });
 }

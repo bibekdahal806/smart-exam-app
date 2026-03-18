@@ -1,5 +1,5 @@
 import 'package:q_bank/modules/exam/exam.dart';
-import 'package:q_bank/modules/home/features/home_dashboard/data/models/dashboard_response_model.dart';
+import 'package:q_bank/modules/home/home.dart';
 import 'package:q_bank/modules/subjects/subjects.dart';
 
 var subjectDummyData = SubjectMapper.fromJsonListToEntityList([
@@ -791,57 +791,55 @@ var examReportDummyData = ExamReportMapper.fromJsonListToEntityList([
   },
 ]);
 
-var dashboardDummyData = DashboardModel.fromJson({
-  "dashboard": {
-    "summary": {
-      "overall_score": 49,
-      "attempted_exams": 25,
-      "passed_exams": 12,
-      "failed_exams": 13,
-    },
-    "performance_overtime": {
-      "range": "weekly",
-      "chart_points": [
-        {"label": "Sun", "student_score": 22, "average_student_score": 52},
-        {"label": "Mon", "student_score": 18, "average_student_score": 24},
-        {"label": "Tue", "student_score": 49, "average_student_score": 16},
-        {"label": "Wed", "student_score": 38, "average_student_score": 29},
-        {"label": "Thu", "student_score": 44, "average_student_score": 43},
-        {"label": "Fri", "student_score": 57, "average_student_score": 51},
-        {"label": "Sat", "student_score": 41, "average_student_score": 60},
-      ],
-    },
-    "subjectwise_strength": [
-      {
-        "subject_id": 1,
-        "subject_name": "Urology",
-        "exam_attempted": 12,
-        "average_score": 29,
-      },
-      {
-        "subject_id": 2,
-        "subject_name": "Biology",
-        "exam_attempted": 18,
-        "average_score": 40,
-      },
-      {
-        "subject_id": 3,
-        "subject_name": "Psychology",
-        "exam_attempted": 10,
-        "average_score": 68,
-      },
-      {
-        "subject_id": 4,
-        "subject_name": "Physiology",
-        "exam_attempted": 14,
-        "average_score": 44,
-      },
-      {
-        "subject_id": 5,
-        "subject_name": "Anatomy",
-        "exam_attempted": 21,
-        "average_score": 95,
-      },
+var dashboardDummyData = DashboardMapper.fromJsonToEntity({
+  "summary": {
+    "overall_score": 49,
+    "attempted_exams": 25,
+    "passed_exams": 12,
+    "failed_exams": 13,
+  },
+  "performance_overtime": {
+    "range": "weekly",
+    "chart_points": [
+      {"label": "Sun", "student_score": 22, "average_student_score": 52},
+      {"label": "Mon", "student_score": 18, "average_student_score": 24},
+      {"label": "Tue", "student_score": 49, "average_student_score": 16},
+      {"label": "Wed", "student_score": 38, "average_student_score": 29},
+      {"label": "Thu", "student_score": 44, "average_student_score": 43},
+      {"label": "Fri", "student_score": 57, "average_student_score": 51},
+      {"label": "Sat", "student_score": 41, "average_student_score": 60},
     ],
   },
+  "subjectwise_strength": [
+    {
+      "subject_id": 1,
+      "subject_name": "Urology",
+      "exam_attempted": 12,
+      "average_score": 29,
+    },
+    {
+      "subject_id": 2,
+      "subject_name": "Biology",
+      "exam_attempted": 18,
+      "average_score": 40,
+    },
+    {
+      "subject_id": 3,
+      "subject_name": "Psychology",
+      "exam_attempted": 10,
+      "average_score": 68,
+    },
+    {
+      "subject_id": 4,
+      "subject_name": "Physiology",
+      "exam_attempted": 14,
+      "average_score": 44,
+    },
+    {
+      "subject_id": 5,
+      "subject_name": "Anatomy",
+      "exam_attempted": 21,
+      "average_score": 95,
+    },
+  ],
 });
