@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:q_bank/common/common.dart';
 import 'package:q_bank/core/core.dart';
 import 'package:q_bank/modules/home/home.dart';
@@ -30,26 +31,31 @@ class HomeScreen extends StatelessWidget {
             ),
           ];
         },
-        body: SingleChildScrollView(
-          child: ParentPaddingWidget(
-            top: 0,
-            bottom: 0,
-            child: Column(
-              mainAxisAlignment: .start,
-              crossAxisAlignment: .start,
-              children: [
-                DashboardHomeSection(),
-                // 16.verticalSpace,
-                // ParentTextWidget(
-                //   "Subjects",
-                //   style: context.textTheme.headlineSmall?.copyWith(
-                //     fontWeight: AppFontWeight.bold,
-                //     color: context.customTheme.textPrimary,
-                //   ),
-                // ),
-                // 8.verticalSpace,
-                // SubjectListView(),
-              ],
+        body: RefreshIndicator(
+          onRefresh: () async {
+            context.read<DashboardCubit>().getDashboard();
+          },
+          child: SingleChildScrollView(
+            child: ParentPaddingWidget(
+              top: 0,
+              bottom: 0,
+              child: Column(
+                mainAxisAlignment: .start,
+                crossAxisAlignment: .start,
+                children: [
+                  DashboardHomeSection(),
+                  // 16.verticalSpace,
+                  // ParentTextWidget(
+                  //   "Subjects",
+                  //   style: context.textTheme.headlineSmall?.copyWith(
+                  //     fontWeight: AppFontWeight.bold,
+                  //     color: context.customTheme.textPrimary,
+                  //   ),
+                  // ),
+                  // 8.verticalSpace,
+                  // SubjectListView(),
+                ],
+              ),
             ),
           ),
         ),
