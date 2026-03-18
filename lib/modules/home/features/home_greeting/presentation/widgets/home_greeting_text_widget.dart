@@ -9,7 +9,7 @@ class HomeGreetingTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ParentPaddingWidget(
       top: 0,
-      bottom: AppSpacing.sm.h,
+      bottom: AppSpacing.xs.h,
       child: Column(
         crossAxisAlignment: .start,
         mainAxisAlignment: .start,

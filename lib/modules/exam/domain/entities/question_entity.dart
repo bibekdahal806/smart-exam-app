@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
-
-import '../../utils/enums/question_type.dart';
+import 'package:q_bank/modules/exam/exam.dart';
 
 class QuestionEntity extends Equatable {
   final String? id;

@@ -23,6 +23,7 @@ dependencies:
   firebase_analytics: ^12.0.4
   firebase_core: ^4.2.1
   firebase_crashlytics: ^5.0.5
+  fl_chart: ^1.2.0
   flex_color_scheme: ^8.4.0
   flutter:
     sdk: flutter

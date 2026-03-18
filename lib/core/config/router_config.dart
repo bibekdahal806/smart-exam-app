@@ -91,6 +91,25 @@ final router = GoRouter(
       name: Routes.pendingExams.name,
       builder: (context, state) => const PendingExamsScreen(),
     ),
+    GoRoute(
+      path: Routes.examReports.path,
+      name: Routes.examReports.name,
+      builder: (context, state) => ExamReportScreen(),
+    ),
+    GoRoute(
+      path: Routes.examReportDetail.path,
+      name: Routes.examReportDetail.name,
+      builder: (context, state) {
+        if (state.extra == null || state.extra is! ExamReportDetailArgument) {
+          return ErrorScreen(
+            error: "Exam detail is needed here.",
+            location: state.fullPath ?? state.matchedLocation,
+          );
+        }
+        final args = state.extra as ExamReportDetailArgument;
+        return ExamReportDetailScreen(argument: args);
+      },
+    ),
   ],
   errorBuilder: (context, state) => ErrorScreen(
     error: state.error.toString(),

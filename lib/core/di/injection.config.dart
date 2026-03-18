@@ -49,6 +49,11 @@ import 'package:q_bank/modules/exam/data/repositories/local/local_exam_session_r
 import 'package:q_bank/modules/exam/data/repositories/remote/remote_exam_repository_impl.dart'
     as _i893;
 import 'package:q_bank/modules/exam/exam.dart' as _i840;
+import 'package:q_bank/modules/exam/features/exam_report/data/repository/remote/remote_exam_report_repository_impl.dart'
+    as _i387;
+import 'package:q_bank/modules/home/features/home_dashboard/data/repositories/dashboard_repository_impl.dart'
+    as _i948;
+import 'package:q_bank/modules/home/home.dart' as _i151;
 import 'package:q_bank/modules/onboarding/data/repository/onboarding_repository_impl.dart'
     as _i37;
 import 'package:q_bank/modules/onboarding/domain/use_case/get_or_set_initial_show_onboarding_value_use_case.dart'
@@ -87,6 +92,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i895.Connectivity>(() => serviceModule.connectivity());
     gh.lazySingleton<_i361.Dio>(() => serviceModule.dio);
     gh.factory<_i192.LogoutHandler>(() => _i935.LogoutHandlerImpl());
+    gh.factory<_i151.DashboardRepository>(
+      () => _i948.DashboardRepositoryImpl(),
+    );
     gh.factory<_i702.OnboardingRepository>(
       () => _i37.OnboardingRepositoryImpl(),
     );
@@ -103,6 +111,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i825.RemoteSubjectRepository>(
       () => _i142.RemoteSubjectRepositoryImpl(),
+    );
+    gh.factory<_i840.RemoteExamReportRepository>(
+      () => _i387.RemoteExamReportRepositoryImpl(),
     );
     gh.factory<_i999.GetCurrentAuthStateUseCase>(
       () => _i999.GetCurrentAuthStateUseCase(gh<_i192.AuthRepository>()),

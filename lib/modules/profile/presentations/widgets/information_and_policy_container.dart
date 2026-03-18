@@ -20,7 +20,7 @@ class InformationAndPolicyContainer extends StatelessWidget {
                 try {
                   await UrlHelper().launch(
                     Urls.termsService,
-                    mode: LaunchMode.platformDefault,
+                    mode: LaunchMode.externalApplication,
                   );
                 } catch (_) {}
               },
@@ -31,7 +31,7 @@ class InformationAndPolicyContainer extends StatelessWidget {
                 try {
                   await UrlHelper().launch(
                     Urls.privacyPolicy,
-                    mode: LaunchMode.platformDefault,
+                    mode: LaunchMode.externalApplication,
                   );
                 } catch (_) {}
               },

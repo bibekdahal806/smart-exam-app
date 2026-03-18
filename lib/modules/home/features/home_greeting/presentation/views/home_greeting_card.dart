@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:q_bank/core/core.dart';
 import 'package:q_bank/modules/home/home.dart';
 
 class HomeGreetingCardView extends StatelessWidget {
@@ -11,9 +10,23 @@ class HomeGreetingCardView extends StatelessWidget {
       mainAxisAlignment: .start,
       crossAxisAlignment: .start,
       children: [
+        // Row(
+        //   mainAxisAlignment: .start,
+        //   children: [
+        //     ParentPaddingWidget(
+        //       child: CustomImageAvatar.network(
+        //         imageUrl: '',
+
+        //         //
+        //       ),
+        //     ),
+        //   ],
+        // ),
         HomeGreetingTextWidget(),
-        AppGaps.gapH2,
-        HomeSearchBarWidget(),
+        // AppGaps.gapH2,
+        HomeExamQuoteCard(),
+        // AppGaps.gapH16,
+        // HomeSearchBarWidget(),
       ],
     );
   }

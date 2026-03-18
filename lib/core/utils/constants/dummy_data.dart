@@ -1,4 +1,5 @@
 import 'package:q_bank/modules/exam/exam.dart';
+import 'package:q_bank/modules/home/home.dart';
 import 'package:q_bank/modules/subjects/subjects.dart';
 
 var subjectDummyData = SubjectMapper.fromJsonListToEntityList([
@@ -711,3 +712,134 @@ var examDummyData = ExamMapper.fromJsonListToEntityList([
     ],
   },
 ]);
+
+var examReportDummyData = ExamReportMapper.fromJsonListToEntityList([
+  {
+    "id": "exam_1",
+    "title": "Biology Mock Test",
+    "created_at": "2026-03-01T10:00:00Z",
+    "started_at": "2026-03-01T10:05:00Z",
+    "duration_seconds": 1800,
+    "submitted_at": "2026-03-01T10:35:00Z",
+    "total_marks": 50,
+    "obtained_marks": 42,
+    "questions": [
+      {
+        "id": "bio_q1",
+        "order_id": "1",
+        "text": "What is the powerhouse of the cell?",
+        "type": "single",
+        "correct_answer": "Mitochondria",
+        "submitted_answer": "Mitochondria",
+        "obtained_marks": 2,
+        "full_marks": 2,
+      },
+      {
+        "id": "bio_q2",
+        "order_id": "2",
+        "text": "DNA stands for?",
+        "type": "text",
+        "correct_answer": "Deoxyribonucleic Acid",
+        "submitted_answer": "Deoxyribonucleic Acid",
+        "obtained_marks": 2,
+        "full_marks": 2,
+      },
+      {
+        "id": "bio_q3",
+        "order_id": "3",
+        "text": "Select plant cell components",
+        "type": "single",
+        "correct_answer": "Cell wall",
+        "submitted_answer": "Cell wall",
+        "obtained_marks": 2,
+        "full_marks": 2,
+      },
+    ],
+  },
+
+  {
+    "id": "exam_2",
+    "title": "Physics Mechanics Test",
+    "created_at": "2026-03-02T09:00:00Z",
+    "started_at": "2026-03-02T09:02:00Z",
+    "duration_seconds": 2700,
+    "submitted_at": "2026-03-02T09:45:00Z",
+    "total_marks": 60,
+    "obtained_marks": 51,
+    "questions": [
+      {
+        "id": "phy_q1",
+        "order_id": "1",
+        "text": "What is the SI unit of force?",
+        "type": "single",
+        "correct_answer": "Newton",
+        "submitted_answer": "Newton",
+        "obtained_marks": 2,
+        "full_marks": 2,
+      },
+      {
+        "id": "phy_q2",
+        "order_id": "2",
+        "text": "State Newton’s Second Law",
+        "type": "text",
+        "correct_answer": "F = ma",
+        "submitted_answer": "Force equals mass times acceleration",
+        "obtained_marks": 3,
+        "full_marks": 4,
+      },
+    ],
+  },
+]);
+
+var dashboardDummyData = DashboardMapper.fromJsonToEntity({
+  "summary": {
+    "overall_score": 49,
+    "attempted_exams": 25,
+    "passed_exams": 12,
+    "failed_exams": 13,
+  },
+  "performance_overtime": {
+    "range": "weekly",
+    "chart_points": [
+      {"label": "Sun", "student_score": 22, "average_student_score": 52},
+      {"label": "Mon", "student_score": 18, "average_student_score": 24},
+      {"label": "Tue", "student_score": 49, "average_student_score": 16},
+      {"label": "Wed", "student_score": 38, "average_student_score": 29},
+      {"label": "Thu", "student_score": 44, "average_student_score": 43},
+      {"label": "Fri", "student_score": 57, "average_student_score": 51},
+      {"label": "Sat", "student_score": 41, "average_student_score": 60},
+    ],
+  },
+  "subjectwise_strength": [
+    {
+      "subject_id": 1,
+      "subject_name": "Urology",
+      "exam_attempted": 12,
+      "average_score": 29,
+    },
+    {
+      "subject_id": 2,
+      "subject_name": "Biology",
+      "exam_attempted": 18,
+      "average_score": 40,
+    },
+    {
+      "subject_id": 3,
+      "subject_name": "Psychology",
+      "exam_attempted": 10,
+      "average_score": 68,
+    },
+    {
+      "subject_id": 4,
+      "subject_name": "Physiology",
+      "exam_attempted": 14,
+      "average_score": 44,
+    },
+    {
+      "subject_id": 5,
+      "subject_name": "Anatomy",
+      "exam_attempted": 21,
+      "average_score": 95,
+    },
+  ],
+});
