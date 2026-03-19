@@ -21,4 +21,7 @@ class ApiRoutes {
   //dashboard
   static const String dashboardEndPoint =
       '$apiEndPoint/student/report-summary/';
+
+  //forget-password
+  static const String forgetPasswordEndPoint = '$apiEndPoint/password/forgot';
 }

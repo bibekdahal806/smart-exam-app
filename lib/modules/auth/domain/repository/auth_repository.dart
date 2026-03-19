@@ -20,6 +20,8 @@ abstract class AuthRepository {
   //get currently logged in user
   Future<UserEntity?> getLoggedInUser();
 
+  Future<void> forgetPassword({required String email});
+
   //logout user from database and local storage
   Future<void> logout({bool? isStillAuthenticated});
 }

@@ -17,8 +17,7 @@ class AccountSettingsContainer extends StatelessWidget {
               ProfileParentTile(
                 title: "Account Settings",
                 children: [
-                  ProfileTile(title: "Change Password", onTap: () {}),
-
+                  // ProfileTile(title: "Change Password", onTap: () {}),
                   ProfileTile(
                     title: "Delete or Deactivate Account",
                     onTap: () {

@@ -22,4 +22,13 @@ class Messages {
   static String noResultFound = "OOPS! NO RESULT FOUND.";
   static String noResultFoundDesc(String name) =>
       "No result found for $name. Please refresh.";
+
+  //password
+  static const String changePasswordFailed = 'Failed to change password!';
+  static const String changePasswordSuccess = 'Password successfully changed!';
+  static const String forgetPasswordFailed = 'Failed to forget password!';
+  static const String forgotPasswordSuccess =
+      "If the provided email is associated with an account, we’ve sent a password reset link. Please check your email inbox.";
+  static const String samePassword =
+      'New password cannot be same as old password';
 }

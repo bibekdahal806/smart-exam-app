@@ -6,6 +6,7 @@ enum Routes {
   //auth
   login(name: "login", path: "/login"),
   signup(name: "signUp", path: "/sign-up"),
+  forgetPassword(name: "forget-password", path: "/forget-password"),
 
   //dashboard
   dashboard(name: "dashboard", path: "/dashboard"),

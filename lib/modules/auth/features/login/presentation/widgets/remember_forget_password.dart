@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:q_bank/common/common.dart';
 import 'package:q_bank/core/core.dart';
 import 'package:q_bank/modules/auth/auth.dart';
@@ -49,7 +50,7 @@ class RememberForgetPasswordWidget extends StatelessWidget {
         CustomButton.text(
           label: "Forget Password?",
           onTap: () {
-            // context.pushReplacementNamed(Routes.forgotPassword.name);
+            context.pushNamed(Routes.forgetPassword.name);
           },
           padding: EdgeInsets.fromLTRB(
             AppSpacing.md.r,
