@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:q_bank/common/common.dart';
 import 'package:q_bank/core/core.dart';
 import 'package:q_bank/modules/home/home.dart';
 
@@ -56,7 +57,7 @@ class _SummaryCardsCarouselState extends State<SummaryCardsCarousel> {
             itemBuilder: (context, index) {
               final item = _items[index];
               return Container(
-                margin: .symmetric(vertical: 10),
+                margin: .symmetric(vertical: 5),
                 padding: EdgeInsets.only(
                   left: index == 0 ? 16 : 6,
                   right: index == _items.length - 1 ? 16 : 6,
@@ -116,8 +117,8 @@ class _SummaryMetricCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: 50,
-              height: 50,
+              width: 40.r,
+              height: 40.r,
               decoration: const BoxDecoration(
                 color: Color(0xFF2F80ED),
                 shape: BoxShape.circle,
@@ -125,21 +126,21 @@ class _SummaryMetricCard extends StatelessWidget {
               alignment: Alignment.center,
               child: Text(
                 item.value,
-                style: const TextStyle(
+                style: context.textTheme.bodyLarge?.copyWith(
+                  fontWeight: AppFontWeight.bold,
                   color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
                 ),
               ),
             ),
-            const SizedBox(height: 10),
-            Text(
-              item.title,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.w600,
-                color: Color(0xFF2A2A2A),
+            5.verticalSpace,
+            Flexible(
+              child: Text(
+                item.title,
+                textAlign: TextAlign.center,
+                style: context.textTheme.bodyMedium?.copyWith(
+                  fontWeight: AppFontWeight.semiBold,
+                  color: const Color(0xFF2A2A2A),
+                ),
               ),
             ),
           ],
