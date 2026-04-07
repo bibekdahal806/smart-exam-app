@@ -3,6 +3,7 @@ import 'dart:convert';
 class ExamReportModel {
   final String? id;
   final String? title;
+  final String? subjectName;
   final String? createdAt;
   final String? startedAt;
   final int? duration;
@@ -14,6 +15,7 @@ class ExamReportModel {
   const ExamReportModel({
     this.id,
     this.title,
+    this.subjectName,
     this.createdAt,
     this.startedAt,
     this.duration,
@@ -32,6 +34,7 @@ class ExamReportModel {
     return ExamReportModel(
       id: json['id']?.toString(),
       title: json['title']?.toString(),
+      subjectName: json['subject_name']?.toString(),
       createdAt: json['created_at']?.toString(),
       startedAt: json['started_at']?.toString(),
       duration: (json['duration_seconds'] as num?)?.toInt(),
@@ -52,6 +55,7 @@ class ExamReportModel {
   Map<String, dynamic> toJson() => {
     'id': id,
     'title': title,
+    'subject_name': subjectName,
     'created_at': createdAt,
     'started_at': startedAt,
     'duration_seconds': duration,

@@ -8,6 +8,7 @@ class SubjectMapper {
       id: model.id,
       name: model.name,
       examCount: model.examCount,
+      attemptedExamCount: model.attemptedExamCount,
     );
   }
 
@@ -16,6 +17,7 @@ class SubjectMapper {
       id: entity.id,
       name: entity.name,
       examCount: entity.examCount,
+      attemptedExamCount: entity.attemptedExamCount,
     );
   }
 

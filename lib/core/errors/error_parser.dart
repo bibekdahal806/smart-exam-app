@@ -53,6 +53,5 @@ String parseErrorMapToString<T>(T error) {
         ? ['Error decoding error message: $e']
         : ['Unknown error occurred'];
   }
-
   return errText.join(' & ');
 }

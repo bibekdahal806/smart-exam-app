@@ -97,6 +97,26 @@ class ExamReportTile extends StatelessWidget {
                 ),
               ],
             ),
+            if ((exam.subjectName ?? '').trim().isNotEmpty) ...[
+              10.verticalSpace,
+              Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: AppSpacing.sm.w,
+                  vertical: AppSpacing.xs.h,
+                ),
+                decoration: BoxDecoration(
+                  color: context.customTheme.backgroundSecondary,
+                  borderRadius: AppBorderRadius.defaultBorderRadius,
+                ),
+                child: ParentTextWidget(
+                  exam.subjectName ?? '',
+                  style: context.textTheme.bodySmall?.copyWith(
+                    color: context.customTheme.textSecondary,
+                    fontWeight: AppFontWeight.medium,
+                  ),
+                ),
+              ),
+            ],
             12.verticalSpace,
             ParentTextWidget(
               'Submitted on ${_formatDate(exam.submittedAt)}',

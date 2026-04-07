@@ -26,7 +26,7 @@ class DashboardNavbarWidget extends StatelessWidget {
             NavigationDestination(icon: Icon(Icons.home), label: "Home"),
             NavigationDestination(
               icon: Icon(Icons.chrome_reader_mode_rounded),
-              label: "Exams",
+              label: "Subjects",
             ),
             NavigationDestination(
               icon: Icon(Icons.bookmark_rounded),
@@ -43,3 +43,5 @@ class DashboardNavbarWidget extends StatelessWidget {
     );
   }
 }
+
+///exam report filter by subject

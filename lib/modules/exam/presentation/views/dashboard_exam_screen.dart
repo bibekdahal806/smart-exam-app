@@ -26,6 +26,7 @@ class DashboardExamScreen extends StatelessWidget {
           context.read<LoadSubjectsCubit>().reLoadSubjects();
         },
         child: SingleChildScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
           child: ParentPaddingWidget(
             top: AppSpacing.sm.h,
             child: SubjectListView(),

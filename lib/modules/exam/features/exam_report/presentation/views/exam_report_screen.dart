@@ -21,35 +21,50 @@ class ExamReportScreenView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBarWidget(
-        showBackButton: true,
-        title: ParentTextWidget(
-          "Exam Reports",
-          style: context.textTheme.bodyMedium?.copyWith(
-            fontWeight: AppFontWeight.medium,
-            color: context.customTheme.textPrimary,
+    return BlocBuilder<LoadExamReportCubit, LoadExamReportState>(
+      builder: (context, state) {
+        final shouldShowFilter =
+            state.loadingState.isSuccess &&
+            state.allReports.isNotEmpty &&
+            state.availableSubjects.isNotEmpty;
+        print("hey ${shouldShowFilter}");
+        return Scaffold(
+          appBar: CustomAppBarWidget(
+            showBackButton: true,
+            title: ParentTextWidget(
+              "Exam Reports",
+              style: context.textTheme.bodyMedium?.copyWith(
+                fontWeight: AppFontWeight.medium,
+                color: context.customTheme.textPrimary,
+              ),
+            ),
+            centerTitle: false,
           ),
-        ),
-        centerTitle: false,
-      ),
-      body: SingleChildScrollView(
-        child: ParentPaddingWidget(
-          top: AppSpacing.sm.h,
-          child: BlocBuilder<LoadExamReportCubit, LoadExamReportState>(
-            builder: (context, state) {
-              if (state.loadingState.isInitial ||
-                  state.loadingState.isLoading) {
-                return const ExamReportListViewLoading();
-              } else if (state.loadingState.isSuccess &&
-                  state.reports.isNotEmpty) {
-                return ExamReportListViewSuccess(loadExamReportState: state);
-              }
-              return ExamReportListViewError(loadExamReportState: state);
-            },
+          body: SingleChildScrollView(
+            child: ParentPaddingWidget(
+              top: AppSpacing.sm.h,
+              bottom: shouldShowFilter ? 96.h : AppSpacing.lg.h,
+              child: Builder(
+                builder: (context) {
+                  if (state.loadingState.isInitial ||
+                      state.loadingState.isLoading) {
+                    return const ExamReportListViewLoading();
+                  } else if (state.loadingState.isSuccess &&
+                      state.reports.isNotEmpty) {
+                    return ExamReportListViewSuccess(
+                      loadExamReportState: state,
+                    );
+                  }
+                  return ExamReportListViewError(loadExamReportState: state);
+                },
+              ),
+            ),
           ),
-        ),
-      ),
+          floatingActionButton: shouldShowFilter
+              ? ExamReportSubjectFilterFab(loadExamReportState: state)
+              : null,
+        );
+      },
     );
   }
 }

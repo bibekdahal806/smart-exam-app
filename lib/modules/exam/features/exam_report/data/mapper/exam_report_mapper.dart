@@ -7,6 +7,7 @@ class ExamReportMapper {
     return ExamReportEntity(
       id: model.id,
       title: model.title,
+      subjectName: model.subjectName,
       createdAt: model.createdAt,
       startedAt: model.startedAt,
       duration: model.duration,
@@ -34,6 +35,7 @@ class ExamReportMapper {
     return ExamReportModel(
       id: entity.id,
       title: entity.title,
+      subjectName: entity.subjectName,
       createdAt: entity.createdAt,
       startedAt: entity.startedAt,
       duration: entity.duration,

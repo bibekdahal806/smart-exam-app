@@ -14,52 +14,79 @@ class QuestionJumpSheet extends StatelessWidget {
     required this.onTap,
   });
 
+  int _crossAxisCount(double width) {
+    if (width < 320) return 4;
+    if (width < 480) return 5;
+    return 6;
+  }
+
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Jump to question', style: Theme.of(context).textTheme.titleLarge),
-            const SizedBox(height: 8),
-            Text('Green = answered, Red = not answered'),
-            const SizedBox(height: 16),
-            GridView.builder(
-              shrinkWrap: true,
-              itemCount: totalQuestions,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 5,
-                mainAxisSpacing: 12,
-                crossAxisSpacing: 12,
-                childAspectRatio: 1,
-              ),
-              itemBuilder: (context, index) {
-                final answered = isAnswered(index);
-                final isCurrent = index == currentIndex;
-                return InkWell(
-                  onTap: () => onTap(index),
-                  borderRadius: BorderRadius.circular(12),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(
-                        color: answered ? Colors.green : Colors.red,
-                        width: isCurrent ? 3 : 1.5,
+      child: ConstrainedBox(
+        constraints: BoxConstraints(maxHeight: screenHeight * 0.72),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              final crossAxisCount = _crossAxisCount(constraints.maxWidth);
+
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Jump to question',
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    'Green = answered, Red = not answered',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  const SizedBox(height: 16),
+                  Expanded(
+                    child: GridView.builder(
+                      physics: const ClampingScrollPhysics(),
+                      itemCount: totalQuestions,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: crossAxisCount,
+                        mainAxisSpacing: 12,
+                        crossAxisSpacing: 12,
+                        childAspectRatio: 1,
                       ),
-                    ),
-                    alignment: Alignment.center,
-                    child: Text(
-                      '${index + 1}',
-                      style: const TextStyle(fontWeight: FontWeight.w700),
+                      itemBuilder: (context, index) {
+                        final answered = isAnswered(index);
+                        final isCurrent = index == currentIndex;
+
+                        return InkWell(
+                          onTap: () => onTap(index),
+                          borderRadius: BorderRadius.circular(12),
+                          child: Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(
+                                color: answered ? Colors.green : Colors.red,
+                                width: isCurrent ? 3 : 1.5,
+                              ),
+                            ),
+                            child: Text(
+                              '${index + 1}',
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ),
-                );
-              },
-            ),
-          ],
+                ],
+              );
+            },
+          ),
         ),
       ),
     );

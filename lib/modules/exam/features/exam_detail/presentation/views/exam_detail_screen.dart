@@ -31,6 +31,7 @@ class _ExamDetailScreenViewState extends State<ExamDetailScreenView>
     with WidgetsBindingObserver {
   late final PageController _pageController;
   bool _didApplyInitialPage = false;
+  bool _allowExitWithoutPrompt = false;
 
   @override
   void initState() {
@@ -174,23 +175,33 @@ class _ExamDetailScreenViewState extends State<ExamDetailScreenView>
         }
 
         if (state.status == ExamSessionStatus.submitted) {
-          // ScaffoldMessenger.of(context).showSnackBar(
-          //   const SnackBar(content: Text('Exam submitted successfully.')),
-          // );
+          if (!_allowExitWithoutPrompt && mounted) {
+            setState(() => _allowExitWithoutPrompt = true);
+          }
           CustomSnackbar.showToastMessage(
             type: .success,
             message: "Exam submitted successfully.",
           );
-
-          Navigator.of(context).maybePop(true);
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (mounted) {
+              Navigator.of(context).pop(true);
+            }
+          });
         }
 
         if (state.status == ExamSessionStatus.expired && state.autoSubmitted) {
+          if (!_allowExitWithoutPrompt && mounted) {
+            setState(() => _allowExitWithoutPrompt = true);
+          }
           CustomSnackbar.showToastMessage(
             type: .success,
             message: "Time is over. The exam was auto-submitted.",
           );
-          Navigator.of(context).maybePop(true);
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (mounted) {
+              Navigator.of(context).pop(true);
+            }
+          });
         }
 
         if (state.status == ExamSessionStatus.failure && state.error != null) {
@@ -225,9 +236,9 @@ class _ExamDetailScreenViewState extends State<ExamDetailScreenView>
         }
 
         return PopScope(
-          canPop: false,
+          canPop: _allowExitWithoutPrompt,
           onPopInvokedWithResult: (didPop, result) async {
-            if (didPop) {
+            if (didPop || _allowExitWithoutPrompt) {
               return;
             }
             await _onPop(context);

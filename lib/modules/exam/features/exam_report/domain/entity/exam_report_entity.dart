@@ -4,6 +4,7 @@ import 'package:q_bank/modules/exam/exam.dart';
 class ExamReportEntity extends Equatable {
   final String? id;
   final String? title;
+  final String? subjectName;
   final String? createdAt;
   final String? startedAt;
   final int? duration;
@@ -16,6 +17,7 @@ class ExamReportEntity extends Equatable {
   const ExamReportEntity({
     this.id,
     this.title,
+    this.subjectName,
     this.createdAt,
     this.startedAt,
     this.duration,
@@ -29,6 +31,7 @@ class ExamReportEntity extends Equatable {
   List<Object?> get props => [
     id,
     title,
+    subjectName,
     createdAt,
     startedAt,
     duration,

@@ -17,11 +17,21 @@ class LoadExamReportCubit extends Cubit<LoadExamReportState> {
 
     try {
       final result = await _remoteExamReportRepository.getExamReports();
+      final subjects =
+          result
+              .map((report) => (report.subjectName ?? '').trim())
+              .where((subject) => subject.isNotEmpty)
+              .toSet()
+              .toList()
+            ..sort();
 
       emit(
         state.copyWith(
           loadingState: AppLoadingState.success,
+          allReports: result,
           reports: result,
+          availableSubjects: subjects,
+          selectedSubject: null,
           error: null,
         ),
       );
@@ -37,5 +47,32 @@ class LoadExamReportCubit extends Cubit<LoadExamReportState> {
 
   Future<void> reloadExamReport() async {
     return loadExamReport();
+  }
+
+  void filterBySubject(String? subjectName) {
+    final normalizedSubject = (subjectName ?? '').trim();
+
+    if (normalizedSubject.isEmpty) {
+      emit(
+        state.copyWith(
+          reports: state.allReports,
+          selectedSubject: null,
+          error: state.error,
+        ),
+      );
+      return;
+    }
+
+    final filtered = state.allReports.where((report) {
+      return (report.subjectName ?? '').trim() == normalizedSubject;
+    }).toList();
+
+    emit(
+      state.copyWith(
+        reports: filtered,
+        selectedSubject: normalizedSubject,
+        error: state.error,
+      ),
+    );
   }
 }

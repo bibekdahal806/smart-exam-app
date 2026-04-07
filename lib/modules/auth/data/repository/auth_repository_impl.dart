@@ -151,6 +151,27 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
+  Future<void> changePassword({
+    required String currentPassword,
+    required String newPassword,
+    required String confirmNewPassword,
+  }) async {
+    try {
+      await _remoteService.postResponse(
+        endPoint: ApiRoutes.changePasswordEndPoint,
+        isTokenRequired: true,
+        payloadObj: {
+          "current_password": currentPassword,
+          "new_password": newPassword,
+          "new_password_confirmation": confirmNewPassword,
+        },
+      );
+    } catch (error) {
+      rethrow;
+    }
+  }
+
+  @override
   Future<void> logout({bool? isStillAuthenticated}) async {
     return _logoutHandler.logout(isStillAuthenticated: isStillAuthenticated);
   }

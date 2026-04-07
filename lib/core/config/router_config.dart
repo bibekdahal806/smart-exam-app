@@ -45,6 +45,11 @@ final router = GoRouter(
       builder: (context, state) => const ForgotPasswordScreen(),
     ),
     GoRoute(
+      name: Routes.changePassword.name,
+      path: Routes.changePassword.path,
+      builder: (context, state) => const ChangePasswordScreen(),
+    ),
+    GoRoute(
       name: Routes.dashboard.name,
       path: Routes.dashboard.path,
       builder: (context, state) => const DashboardScreen(),

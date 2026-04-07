@@ -22,6 +22,12 @@ abstract class AuthRepository {
 
   Future<void> forgetPassword({required String email});
 
+  Future<void> changePassword({
+    required String currentPassword,
+    required String newPassword,
+    required String confirmNewPassword,
+  });
+
   //logout user from database and local storage
   Future<void> logout({bool? isStillAuthenticated});
 }

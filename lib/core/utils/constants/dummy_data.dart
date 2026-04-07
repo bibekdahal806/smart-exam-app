@@ -3,12 +3,22 @@ import 'package:q_bank/modules/home/home.dart';
 import 'package:q_bank/modules/subjects/subjects.dart';
 
 var subjectDummyData = SubjectMapper.fromJsonListToEntityList([
-  {"id": "1", "name": "Mathematics", "exam_count": 3},
-  {"id": "2", "name": "Physics", "exam_count": 3},
-  {"id": "3", "name": "Chemistry", "exam_count": 2},
-  {"id": "4", "name": "Biology", "exam_count": 2},
-  {"id": "5", "name": "English", "exam_count": 2},
-  {"id": "6", "name": "Computer Science", "exam_count": 2},
+  {
+    "id": "1",
+    "name": "Mathematics",
+    "exam_count": 3,
+    "attempted_exam_count": 2,
+  },
+  {"id": "2", "name": "Physics", "exam_count": 3, "attempted_exam_count": 1},
+  {"id": "3", "name": "Chemistry", "exam_count": 2, "attempted_exam_count": 1},
+  {"id": "4", "name": "Biology", "exam_count": 2, "attempted_exam_count": 0},
+  {"id": "5", "name": "English", "exam_count": 2, "attempted_exam_count": 2},
+  {
+    "id": "6",
+    "name": "Computer Science",
+    "exam_count": 2,
+    "attempted_exam_count": 1,
+  },
 ]);
 var examDummyData = ExamMapper.fromJsonListToEntityList([
   {
@@ -717,6 +727,7 @@ var examReportDummyData = ExamReportMapper.fromJsonListToEntityList([
   {
     "id": "exam_1",
     "title": "Biology Mock Test",
+    "subject_name": "Biology",
     "created_at": "2026-03-01T10:00:00Z",
     "started_at": "2026-03-01T10:05:00Z",
     "duration_seconds": 1800,
@@ -760,6 +771,7 @@ var examReportDummyData = ExamReportMapper.fromJsonListToEntityList([
   {
     "id": "exam_2",
     "title": "Physics Mechanics Test",
+    "subject_name": "Physics",
     "created_at": "2026-03-02T09:00:00Z",
     "started_at": "2026-03-02T09:02:00Z",
     "duration_seconds": 2700,
