@@ -6,6 +6,7 @@ class ExamEntity extends Equatable {
   final String? createdAt;
   final String? title;
   final String? description;
+  final bool isAttempted;
   final bool hasTimer;
   final int? durationSeconds;
   final List<QuestionEntity> questions;
@@ -15,6 +16,7 @@ class ExamEntity extends Equatable {
     this.createdAt,
     this.title,
     this.description,
+    this.isAttempted = false,
     this.hasTimer = false,
     this.durationSeconds,
     this.questions = const [],
@@ -24,12 +26,13 @@ class ExamEntity extends Equatable {
 
   @override
   List<Object?> get props => [
-        id,
-        createdAt,
-        title,
-        description,
-        hasTimer,
-        durationSeconds,
-        questions,
-      ];
+    id,
+    createdAt,
+    title,
+    description,
+    isAttempted,
+    hasTimer,
+    durationSeconds,
+    questions,
+  ];
 }

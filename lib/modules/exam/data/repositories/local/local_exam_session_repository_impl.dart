@@ -25,6 +25,13 @@ class LocalExamSessionRepositoryImpl implements LocalExamSessionRepository {
         .map((e) => e.toString())
         .toSet();
 
+    if (session.isSubmitted) {
+      ids.remove(session.examId);
+      await _box.delete(_sessionKey(session.examId));
+      await _box.put(_indexKey, ids.toList());
+      return;
+    }
+
     ids.add(session.examId);
 
     final model = ExamSessionMapper.toModel(session);

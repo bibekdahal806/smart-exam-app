@@ -7,6 +7,7 @@ class ExamModel {
   final String? createdAt;
   final String? title;
   final String? description;
+  final bool? isAttempted;
   final bool? hasTimer;
   final int? durationSeconds;
   final List<QuestionModel>? questions;
@@ -16,6 +17,7 @@ class ExamModel {
     this.createdAt,
     this.title,
     this.description,
+    this.isAttempted,
     this.hasTimer,
     this.durationSeconds,
     this.questions,
@@ -32,6 +34,7 @@ class ExamModel {
     createdAt: json['created_at']?.toString(),
     title: json['title']?.toString(),
     description: json['description']?.toString(),
+    isAttempted: json['is_attempted'] as bool?,
     hasTimer: json['has_timer'] as bool?,
     durationSeconds: (json['duration_seconds'] as num?)?.toInt(),
     questions: json['questions'] == null
@@ -48,6 +51,7 @@ class ExamModel {
     'created_at': createdAt,
     'title': title,
     'description': description,
+    'is_attempted': isAttempted,
     'has_timer': hasTimer,
     'duration_seconds': durationSeconds,
     'questions': questions == null

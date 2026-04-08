@@ -26,6 +26,14 @@ class ExamTile extends StatelessWidget {
     return InkWell(
       borderRadius: BorderRadius.circular(16),
       onTap: () {
+        if (exam.isAttempted) {
+          CustomSnackbar.showToastMessage(
+            type: .error,
+            message: "Exam is already attempted.",
+          );
+          return;
+        }
+
         context.pushNamed(
           Routes.examDetail.name,
           extra: ExamDetailArgument(exam: exam),

@@ -11,6 +11,7 @@ class ExamMapper {
       createdAt: model.createdAt,
       title: model.title,
       description: model.description,
+      isAttempted: model.isAttempted ?? false,
       hasTimer: hasTimer,
       durationSeconds: hasTimer ? duration : null,
       questions: (model.questions ?? const [])
@@ -24,6 +25,7 @@ class ExamMapper {
     createdAt: entity.createdAt,
     title: entity.title,
     description: entity.description,
+    isAttempted: entity.isAttempted,
     hasTimer: entity.hasTimer,
     durationSeconds: entity.durationSeconds,
     questions: entity.questions.map(QuestionMapper.toModel).toList(),

@@ -3,11 +3,14 @@ import 'package:injectable/injectable.dart';
 import 'package:q_bank/common/common.dart';
 import 'package:q_bank/core/core.dart';
 import 'package:q_bank/modules/auth/auth.dart';
+import 'package:q_bank/modules/exam/exam.dart';
 
 @Injectable(as: LogoutHandler)
 class LogoutHandlerImpl implements LogoutHandler {
   final UserSessionRepository _userSessionRepository =
       getIt<UserSessionRepository>();
+  final LocalExamSessionRepository _localExamSessionRepository =
+      getIt<LocalExamSessionRepository>();
 
   /// instance of dio Config
   final _config = getIt<DioConfigs>();
@@ -30,10 +33,12 @@ class LogoutHandlerImpl implements LogoutHandler {
 
       GlobalCancelTokenManager.cancelAllRequests();
       getIt<LogoutInterceptor>().markAsLoggedOut();
+      await _localExamSessionRepository.clearAllSessions();
       await _userSessionRepository.clearUserSession();
     } catch (e) {
       GlobalCancelTokenManager.cancelAllRequests();
       getIt<LogoutInterceptor>().markAsLoggedOut();
+      await _localExamSessionRepository.clearAllSessions();
       await _userSessionRepository.clearUserSession();
     }
   }
