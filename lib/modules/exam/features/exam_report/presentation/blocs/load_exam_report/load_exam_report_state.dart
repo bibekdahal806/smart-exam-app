@@ -1,13 +1,13 @@
 part of 'load_exam_report_cubit.dart';
 
-const _selectedSubjectNoChange = Object();
+const _selectedSubjectsNoChange = Object();
 
 class LoadExamReportState extends Equatable {
   final AppLoadingState loadingState;
   final List<ExamReportEntity> allReports;
   final List<ExamReportEntity> reports;
   final List<String> availableSubjects;
-  final String? selectedSubject;
+  final List<String> selectedSubjects;
   final String? error;
 
   const LoadExamReportState({
@@ -15,7 +15,7 @@ class LoadExamReportState extends Equatable {
     this.allReports = const [],
     this.reports = const [],
     this.availableSubjects = const [],
-    this.selectedSubject,
+    this.selectedSubjects = const [],
     this.error,
   });
 
@@ -24,7 +24,7 @@ class LoadExamReportState extends Equatable {
     List<ExamReportEntity>? allReports,
     List<ExamReportEntity>? reports,
     List<String>? availableSubjects,
-    Object? selectedSubject = _selectedSubjectNoChange,
+    Object? selectedSubjects = _selectedSubjectsNoChange,
     String? error,
   }) {
     return LoadExamReportState(
@@ -32,9 +32,9 @@ class LoadExamReportState extends Equatable {
       allReports: allReports ?? this.allReports,
       reports: reports ?? this.reports,
       availableSubjects: availableSubjects ?? this.availableSubjects,
-      selectedSubject: selectedSubject == _selectedSubjectNoChange
-          ? this.selectedSubject
-          : selectedSubject as String?,
+      selectedSubjects: selectedSubjects == _selectedSubjectsNoChange
+          ? this.selectedSubjects
+          : List<String>.from(selectedSubjects as List),
       error: error,
     );
   }
@@ -45,7 +45,7 @@ class LoadExamReportState extends Equatable {
     allReports,
     reports,
     availableSubjects,
-    selectedSubject,
+    selectedSubjects,
     error,
   ];
 }

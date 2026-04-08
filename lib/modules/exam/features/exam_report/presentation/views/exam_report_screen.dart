@@ -27,7 +27,6 @@ class ExamReportScreenView extends StatelessWidget {
             state.loadingState.isSuccess &&
             state.allReports.isNotEmpty &&
             state.availableSubjects.isNotEmpty;
-        print("hey ${shouldShowFilter}");
         return Scaffold(
           appBar: CustomAppBarWidget(
             showBackButton: true,

@@ -24,5 +24,5 @@ class ApiRoutes {
 
   //forget-password
   static const String forgetPasswordEndPoint = '$apiEndPoint/password/forgot';
-  static const String changePasswordEndPoint = '$apiEndPoint/password/change';
+  static const String changePasswordEndPoint = '$apiEndPoint/change-password';
 }

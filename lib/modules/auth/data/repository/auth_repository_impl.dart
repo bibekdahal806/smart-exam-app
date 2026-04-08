@@ -134,16 +134,10 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<void> forgetPassword({required String email}) async {
     try {
-      var response = await _remoteService.postResponse(
+      await _remoteService.postResponse(
         endPoint: ApiRoutes.forgetPasswordEndPoint,
         isTokenRequired: false,
         payloadObj: {"email": email},
-      );
-      return response.fold(
-        onSuccess: (successValue) async {},
-        onError: (error) {
-          throw AuthenticationException(error.message);
-        },
       );
     } catch (error) {
       rethrow;

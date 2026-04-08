@@ -31,7 +31,7 @@ class LoadExamReportCubit extends Cubit<LoadExamReportState> {
           allReports: result,
           reports: result,
           availableSubjects: subjects,
-          selectedSubject: null,
+          selectedSubjects: const [],
           error: null,
         ),
       );
@@ -49,14 +49,20 @@ class LoadExamReportCubit extends Cubit<LoadExamReportState> {
     return loadExamReport();
   }
 
-  void filterBySubject(String? subjectName) {
-    final normalizedSubject = (subjectName ?? '').trim();
+  void filterBySubjects(List<String> subjectNames) {
+    final normalizedSubjects =
+        subjectNames
+            .map((subject) => subject.trim())
+            .where((subject) => subject.isNotEmpty)
+            .toSet()
+            .toList()
+          ..sort();
 
-    if (normalizedSubject.isEmpty) {
+    if (normalizedSubjects.isEmpty) {
       emit(
         state.copyWith(
           reports: state.allReports,
-          selectedSubject: null,
+          selectedSubjects: const [],
           error: state.error,
         ),
       );
@@ -64,13 +70,13 @@ class LoadExamReportCubit extends Cubit<LoadExamReportState> {
     }
 
     final filtered = state.allReports.where((report) {
-      return (report.subjectName ?? '').trim() == normalizedSubject;
+      return normalizedSubjects.contains((report.subjectName ?? '').trim());
     }).toList();
 
     emit(
       state.copyWith(
         reports: filtered,
-        selectedSubject: normalizedSubject,
+        selectedSubjects: normalizedSubjects,
         error: state.error,
       ),
     );
