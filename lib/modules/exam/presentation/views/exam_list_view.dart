@@ -16,35 +16,46 @@ class ExamListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBarWidget(
-        showBackButton: !argument.loadAll,
-        title: ParentTextWidget(
-          _title,
-          style: context.textTheme.bodyMedium?.copyWith(
-            fontWeight: AppFontWeight.medium,
-            color: context.customTheme.textPrimary,
+    return BlocBuilder<LoadExamsCubit, LoadExamsState>(
+      builder: (context, state) {
+        final shouldShowFilter =
+            state.loadingState.isSuccess && state.allExams.isNotEmpty;
+
+        return Scaffold(
+          appBar: CustomAppBarWidget(
+            showBackButton: !argument.loadAll,
+            title: ParentTextWidget(
+              _title,
+              style: context.textTheme.bodyMedium?.copyWith(
+                fontWeight: AppFontWeight.medium,
+                color: context.customTheme.textPrimary,
+              ),
+            ),
+            centerTitle: false,
           ),
-        ),
-        centerTitle: false,
-      ),
-      body: SingleChildScrollView(
-        child: ParentPaddingWidget(
-          top: AppSpacing.sm.h,
-          child: BlocBuilder<LoadExamsCubit, LoadExamsState>(
-            builder: (context, state) {
-              if (state.loadingState.isInitial ||
-                  state.loadingState.isLoading) {
-                return const ExamListViewLoading();
-              } else if (state.loadingState.isSuccess &&
-                  state.exams.isNotEmpty) {
-                return ExamListViewSuccess(loadExamsState: state);
-              }
-              return ExamListViewError(loadExamsState: state);
-            },
+          body: SingleChildScrollView(
+            child: ParentPaddingWidget(
+              top: AppSpacing.sm.h,
+              bottom: shouldShowFilter ? 96.h : AppSpacing.lg.h,
+              child: Builder(
+                builder: (context) {
+                  if (state.loadingState.isInitial ||
+                      state.loadingState.isLoading) {
+                    return const ExamListViewLoading();
+                  } else if (state.loadingState.isSuccess &&
+                      state.exams.isNotEmpty) {
+                    return ExamListViewSuccess(loadExamsState: state);
+                  }
+                  return ExamListViewError(loadExamsState: state);
+                },
+              ),
+            ),
           ),
-        ),
-      ),
+          floatingActionButton: shouldShowFilter
+              ? ExamAccessTypeFilterFab(loadExamsState: state)
+              : null,
+        );
+      },
     );
   }
 }

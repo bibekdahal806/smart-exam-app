@@ -7,6 +7,7 @@ class ExamModel {
   final String? createdAt;
   final String? title;
   final String? description;
+  final String? accessType;
   final bool? isAttempted;
   final bool? hasTimer;
   final int? durationSeconds;
@@ -17,6 +18,7 @@ class ExamModel {
     this.createdAt,
     this.title,
     this.description,
+    this.accessType,
     this.isAttempted,
     this.hasTimer,
     this.durationSeconds,
@@ -34,6 +36,7 @@ class ExamModel {
     createdAt: json['created_at']?.toString(),
     title: json['title']?.toString(),
     description: json['description']?.toString(),
+    accessType: json['access_type']?.toString(),
     isAttempted: json['is_attempted'] as bool?,
     hasTimer: json['has_timer'] as bool?,
     durationSeconds: (json['duration_seconds'] as num?)?.toInt(),
@@ -51,6 +54,7 @@ class ExamModel {
     'created_at': createdAt,
     'title': title,
     'description': description,
+    'access_type': accessType,
     'is_attempted': isAttempted,
     'has_timer': hasTimer,
     'duration_seconds': durationSeconds,

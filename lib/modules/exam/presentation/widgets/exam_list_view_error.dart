@@ -9,20 +9,39 @@ class ExamListViewError extends StatelessWidget {
 
   const ExamListViewError({super.key, required this.loadExamsState});
 
+  String _accessTypeLabel(String? accessType) {
+    switch (accessType) {
+      case 'free':
+        return 'free';
+      case 'assigned':
+        return 'assigned';
+      default:
+        return 'filtered';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final isFailure = loadExamsState.loadingState.isFailure;
+    final selectedAccessType = loadExamsState.selectedAccessType;
+
     return Column(
       children: [
         150.verticalSpace,
         Center(
           child: ErrorScreenWidget(
             errorTitle: Messages.noResultFound,
-            errorDescription:
-                loadExamsState.error ?? Messages.noResultFoundDesc("exams"),
-            showButton: true,
-            onButtonTap: () {
-              context.read<LoadExamsCubit>().reloadExams();
-            },
+            errorDescription: isFailure
+                ? loadExamsState.error ?? Messages.noResultFoundDesc("exams")
+                : selectedAccessType == null
+                ? Messages.noResultFoundDesc("exams")
+                : 'No ${_accessTypeLabel(selectedAccessType)} exams found.',
+            showButton: isFailure,
+            onButtonTap: isFailure
+                ? () {
+                    context.read<LoadExamsCubit>().reloadExams();
+                  }
+                : null,
           ),
         ),
       ],

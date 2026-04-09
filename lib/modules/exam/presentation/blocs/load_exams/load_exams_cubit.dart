@@ -12,12 +12,31 @@ class LoadExamsCubit extends Cubit<LoadExamsState> {
 
   LoadExamsCubit() : super(const LoadExamsState());
 
+  String? _normalizeAccessType(String? accessType) {
+    final normalized = accessType?.trim().toLowerCase();
+    if (normalized == null || normalized.isEmpty) return null;
+    if (normalized == 'free' || normalized == 'assigned') return normalized;
+    return null;
+  }
+
+  List<ExamEntity> _applyAccessTypeFilter(
+    List<ExamEntity> exams,
+    String? accessType,
+  ) {
+    final normalized = _normalizeAccessType(accessType);
+    if (normalized == null) return List<ExamEntity>.from(exams);
+
+    return exams
+        .where((exam) => exam.normalizedAccessType == normalized)
+        .toList();
+  }
+
   Future<void> loadExams(ExamScreenArgument argument) async {
     final sameArgument = state.argument == argument;
 
     if (sameArgument &&
         state.loadingState.isSuccess &&
-        state.exams.isNotEmpty) {
+        state.allExams.isNotEmpty) {
       return;
     }
 
@@ -51,10 +70,13 @@ class LoadExamsCubit extends Cubit<LoadExamsState> {
         result = await _remoteExamRepository.getExamsBySubjectId(subjectId);
       }
 
+      final filtered = _applyAccessTypeFilter(result, state.selectedAccessType);
+
       emit(
         state.copyWith(
           loadingState: AppLoadingState.success,
-          exams: result,
+          allExams: result,
+          exams: filtered,
           argument: argument,
           error: null,
         ),
@@ -74,5 +96,16 @@ class LoadExamsCubit extends Cubit<LoadExamsState> {
     final argument = state.argument;
     if (argument == null) return;
     return loadExams(argument);
+  }
+
+  void filterByAccessType(String? accessType) {
+    final normalized = _normalizeAccessType(accessType);
+    emit(
+      state.copyWith(
+        exams: _applyAccessTypeFilter(state.allExams, normalized),
+        selectedAccessType: normalized,
+        error: null,
+      ),
+    );
   }
 }
